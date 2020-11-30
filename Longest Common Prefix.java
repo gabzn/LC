@@ -12,10 +12,11 @@ class Solution
         //'i' starts at 1 instead of 0 because there's no need to compare the first string in the array.
         for(int i=1;i<totalString;i++) 
         {
-            //'toCompare' will be assigned every different string in the array throughout the for loop.
+            //'toCompare' will be assigned every string in each iteration.
             String toCompare = strs[i]; 
             
-            //while 'prefix' is not equal to current 'toCompare', cut the last character of 'prefix' until the condition is met.
+            //While 'prefix' is not equal to current 'toCompare', cut the last character of 'prefix' until the condition is met.
+            //As long as 'prefix' is not equal to 'toCompare', take out the last character of prefix until they are equal.
             while(!prefix.equals(toCompare) && toCompare.indexOf(prefix)!= 0)  
             {
                 prefix = prefix.substring(0,prefix.length()-1);
