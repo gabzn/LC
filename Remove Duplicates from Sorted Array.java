@@ -40,4 +40,4 @@ class Solution
 //          nums[] = [  1   ,   2    ,  2  ]
 //                             size     i
 
-//          size == 1 when the loop is finished, but the correct size should be 2. Therefore, 'return size+1'.
+//          'size == 1' when the loop is finished, but the correct size should be 2. Therefore, 'return size+1'.
