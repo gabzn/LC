@@ -50,20 +50,24 @@ class Solution
             temp = temp.next;
         }
         
-        while(l1 != null)
-        {
-            temp.next = new ListNode(l1.val);
-            temp = temp.next;
-            l1 = l1.next;
-        }
+//         while(l1 != null)
+//         {
+//             temp.next = new ListNode(l1.val);
+//             temp = temp.next;
+//             l1 = l1.next;
+//         }
         
-        while(l2 != null)
-        {
-            temp.next = new ListNode(l2.val);
-            temp = temp.next;
-            l2 = l2.next;
-        }
-            
+//         while(l2 != null)
+//         {
+//             temp.next = new ListNode(l2.val);
+//             temp = temp.next;
+//             l2 = l2.next;
+//         }
+     
+        //If either one of the lists is empty, temp could just point to the non-empty list since the non-empty list is sorted already.
+        if(l1 == null)    temp.next = l2;
+        else     temp.next = l1;
+      
         return toReturn;  
     }
 }
