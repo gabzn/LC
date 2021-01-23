@@ -14,7 +14,7 @@ class Solution
     public int[] sortedSquares(int[] nums) 
     {
         
-        // First off, square all of the elements first.
+        // First off, square all of the elements.
         for(int i=0;i<nums.length;i++)
         {
             nums[i] = nums[i] * nums[i];
@@ -23,8 +23,8 @@ class Solution
         // Create a new array with the same size.
         int[] newNums = new int[nums.length];
         
-        // 3 pointers. left is for the beginning of the original array, and right is for the end of the original array.
-        // p is for the new array starting from the end.
+        // 3 pointers. left points to the beginning of the original array, and right points to the end of the original array.
+        // p points to the end of the new array.
         int left = 0;
         int right = nums.length - 1;
         int p = right;
