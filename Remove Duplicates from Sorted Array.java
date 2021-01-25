@@ -20,6 +20,7 @@ class Solution
         return size+1;
     }
 }
+
 //'size' manages the return value as well as the index number.
 //'size' keep track of the non-duplicate values.
 //Super stupid question ngl.
@@ -41,3 +42,28 @@ class Solution
 //                             size     i
 
 //          'size == 1' when the loop is finished, but the correct size should be 2. Therefore, 'return size+1'.
+//-------------------------------------------------------------
+
+class Solution 
+{
+    public int removeDuplicates(int[] nums) 
+    {
+        if(nums.length == 0) return 0;
+        
+        int l = 0;
+        int r = 1;
+
+        while(r < nums.length)
+        {
+            if(nums[l] == nums[r])    r++;
+            else
+            {
+                l++;
+                nums[l] = nums[r];
+                r++;
+            }
+        }
+        
+        return l + 1;
+    }
+}
