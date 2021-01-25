@@ -40,3 +40,51 @@ class Solution
         return nums.length - total_appearance; 
     }
 }
+
+//----------------------------------------------------------------------------------------------------
+
+class Solution 
+{
+    public int removeElement(int[] nums, int val) 
+    {
+        int totalVal = 0;
+        for(int i=0;i<nums.length;i++)
+        {
+            if(nums[i] == val) totalVal++;
+        }
+        
+        // Handle the case when the entire array contains only val. 
+        // nums = [3,3,3]        val = 3
+        if(totalVal == nums.length) return 0;
+        
+        // currentVal holds the current number of val.
+        int currentVal = totalVal;
+        int frontP = 0;
+        int backP = nums.length - 1;
+        
+        while(currentVal != 0)
+        {
+            // If the current val is equal to val, we check from the back of the array.
+            if(nums[frontP] == val)
+            {
+                // If the back of the array is also equal to val, we move the backP pointer and decrement currentVal until the value is not val.
+                while(nums[backP] == val)
+                {
+                    backP--;
+                    currentVal--;
+                }
+                if(currentVal == 0) break;
+                
+                nums[frontP] = nums[backP];
+                backP--;
+                currentVal--;
+            }
+            frontP++;
+        }
+        
+        return nums.length - totalVal; 
+    }
+}
+
+
+
