@@ -1,0 +1,40 @@
+public void deleteEvenNodes()
+    {
+        Node cur = head;
+        Node prev = null;
+        Node tempHead = null;
+
+        while(cur != null && tempHead == null)
+        {
+            if(cur.data % 2 == 1)
+            {
+                prev = cur;
+                tempHead = prev;
+
+                prev.next = cur.next;
+                cur = prev.next;
+            }
+            else cur = cur.next;
+        }
+
+        if(tempHead == null)
+        {
+            first = last = null;
+            return;
+        }
+        else first = tempHead;
+
+        while(cur != null)
+        {
+            if(cur.data % 2 == 1)
+            {
+                cur = cur.next;
+                prev = prev.next;
+            }
+            else
+            {
+                prev.next = cur.next;
+                cur = prev.next;
+            }
+        }
+    }
