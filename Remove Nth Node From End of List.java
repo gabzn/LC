@@ -13,6 +13,8 @@ Output: [1,2,3,5]
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
+// Two passes
 class Solution 
 {
     public ListNode removeNthFromEnd(ListNode head, int n) 
@@ -48,5 +50,33 @@ class Solution
         }
         
         return size;
+    }
+}
+
+// one pass & without helper function.
+class Solution 
+{
+    public ListNode removeNthFromEnd(ListNode head, int n) 
+    {        
+        ListNode temp = new ListNode();
+        temp.next = head;
+        
+        ListNode advanceNode = temp;
+        ListNode delayNode = temp;
+        
+        // move advanceNode n steps first,
+        // starting on n+1 steps, move delayNode at the same time until the next node of advanceNode is null.
+        //                        temp ---> 1 ---> 2 ---> 3 ---> 4 ---> 5      n=2
+        //                          d                     a
+        //                                                d             a
+        int delayStep = 0;
+        while(advanceNode.next != null)
+        {
+            advanceNode = advanceNode.next;
+            if(++delayStep > n)    delayNode = delayNode.next;
+        }
+        
+        delayNode.next = delayNode.next.next;
+        return temp.next;       
     }
 }
