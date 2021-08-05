@@ -24,14 +24,15 @@ class Solution
         {
             toReturn = new ListNode(l1.val);
             l1 = l1.next;
-        }else
+        }
+        else
         {
             toReturn = new ListNode(l2.val);
             l2 = l2.next;
         }
         
-        //Initialize a pointer. Temp will link all other nodes in order.
-        ListNode temp = toReturn;
+        //Initialize a pointer. ptr will link all other nodes in order.
+        ListNode ptr = toReturn;
         
         //As long as neither of them is null, keep adding the smaller one to toReturn.
         //After adding a node to toReturn, remove that node from the list.
@@ -39,15 +40,15 @@ class Solution
         {
             if(l1.val<=l2.val)
             {
-                temp.next = new ListNode(l1.val);
+                ptr.next = new ListNode(l1.val);
                 l1 = l1.next;
             }
             else
             {
-                temp.next = new ListNode(l2.val);
+                ptr.next = new ListNode(l2.val);
                 l2 = l2.next;
             }
-            temp = temp.next;
+            ptr = ptr.next;
         }
         
 //         while(l1 != null)
@@ -65,8 +66,8 @@ class Solution
 //         }
      
         //If either one of the lists is empty, temp could just point to the non-empty list since the non-empty list is sorted already.
-        if(l1 == null)    temp.next = l2;
-        else     temp.next = l1;
+        if(l1 == null)    ptr.next = l2;
+        else     ptr.next = l1;
       
         return toReturn;  
     }
