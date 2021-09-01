@@ -12,8 +12,8 @@ class Solution
     {
         if(nums.length == 0) return 0;
     
-        //Classical sliding-windom problem.
-        //Two pointers, right to find how many ones are there now.
+        // Classical sliding-windom problem.
+        // Two pointers, right to find how many ones are there now.
         // Left to hold the max number of consecutive 1s.
         int left = 0;
         int right = 0;
