@@ -1,29 +1,36 @@
-public void deleteEvenNodes()
-    {
+                     1   ->   2   ->   3   ->   4   ->   5   ->   6   ->   7   ->   8
+prev temp           cur
+prev temp                  
+
+
+public Node deleteEvenNodes()
+{
         Node cur = head;
         Node prev = null;
         Node tempHead = null;
-
+        
+        // Find the first odd node and move prev & tempHead to the first odd node.
         while(cur != null && tempHead == null)
         {
             if(cur.data % 2 == 1)
             {
+                // Move prev to cur position so it stays before cur.
                 prev = cur;
                 tempHead = prev;
-
-                prev.next = cur.next;
+                   
+                // prev.next = cur.next;
+                
+                // Move cur to next position so it stays after prev.
                 cur = prev.next;
             }
             else cur = cur.next;
         }
-
-        if(tempHead == null)
-        {
-            first = last = null;
-            return;
-        }
-        else first = tempHead;
-
+        
+        // Edge case where the entire list has only even nodes.
+        if(tempHead == null)    return null;
+        
+        // If the current node is an odd node, advance both cur and prev.
+        // If the current node is an even node, unlink the current node and advance cur.
         while(cur != null)
         {
             if(cur.data % 2 == 1)
@@ -37,4 +44,5 @@ public void deleteEvenNodes()
                 cur = prev.next;
             }
         }
-    }
+        return tempHead;
+}
