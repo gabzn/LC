@@ -13,22 +13,21 @@ class Solution
         
       int total = 0;
 
-      for(int i=0;i<s.length();i++)
-      {
-          int current = map.get(s.charAt(i));
+      for(int i=0;i<s.length();i++) {
+            int current = map.get(s.charAt(i));
             
-          if(i+1 < s.length())                         //Check edge case where when i points to the last char of the string, and there's no i+1.
-          {
-              int next = map.get(s.charAt(i+1));
-              if(next > current)
-              {
-                  total = total + (next - current);
-                  i++;
-              }
-              else  total = total + current;
-          }
-          else  total = total + current;               //If there's no i+1, simply add i to the total.    
+            if(i+1 < s.length()) {
+                int next = map.get(s.charAt(i+1));
+                
+                if(next > current) {
+                    current = next - current;
+                    i++;
+                }   
+            }
+          
+          total += current;
       }
+        
         return total;
     }
 }
