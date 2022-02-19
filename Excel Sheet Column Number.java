@@ -16,8 +16,10 @@ class Solution {
         int length = columnTitle.length();
         
         for(int currentCharIndex=0; currentCharIndex<length; currentCharIndex++) {
-            int charValue = columnTitle.charAt(currentCharIndex) - 64;
+            // int charValue = columnTitle.charAt(currentCharIndex) - 64;
+            int charValue = columnTitle.charAt(currentCharIndex) - 'A' + 1;
             int power = length - currentCharIndex - 1;
+            
             charValue = (int) Math.pow(26, power) * charValue;
             answer += charValue;
         }
@@ -27,11 +29,13 @@ class Solution {
 }
 
 // The corresponding value for the current letter =  letterInNum * 26^power 
-    //       letterNum = letter - 64
+    
+    //       Two ways to get the letterInNum AKA conversion
+    //       1: letterNum = letter - 64  
+    //       2: letterNum = letter - 'A' + 1
+
     //       power = length - currentIndex - 1
 
-// ZZ = 702
-// AAA = 703
 
 // A A A A    l = 4
 // 0 1 2 3    index
