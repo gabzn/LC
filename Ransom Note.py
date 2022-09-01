@@ -34,3 +34,22 @@ class Solution:
             magazine_occurrence_dict[letter] -= 1
         
         return True
+      
+      
+ class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        if len(ransomNote) > len(magazine):
+            return False
+        
+        magazine_letter_occurrence = [0] * 26
+        for letter in magazine:
+            letter_index = ord(letter) - 97
+            magazine_letter_occurrence[letter_index] += 1
+            
+        for letter in ransomNote:
+            letter_index = ord(letter) - 97
+            if magazine_letter_occurrence[letter_index] <= 0:
+                return False
+            magazine_letter_occurrence[letter_index] -= 1
+            
+        return True
