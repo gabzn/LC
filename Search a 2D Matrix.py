@@ -30,7 +30,8 @@ class Solution:
                     else:
                         right = mid - 1
         return False
-      
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Solution #2
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
@@ -47,7 +48,7 @@ class Solution:
                 top_row = mid + 1
             else:
                 bottom_row = mid - 1
-        
+                
         if top_row > bottom_row:
             return False
         
