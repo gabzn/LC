@@ -14,7 +14,7 @@ Output: false
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         
-        # Go through each row and ONLY perform BS on the row in which target is in the range.
+        # Go through each row and ONLY perform BS on the row of which target is in the range.
         # O(n*logn) runtime
         for row in matrix:
             left, right = 0, len(row) - 1
