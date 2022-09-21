@@ -24,7 +24,7 @@ class Solution:
                     mid = (left + right) // 2
                     if row[mid] == target:
                         return True
-                    
+                      
                     if row[mid] < target:
                         left = mid + 1
                     else:
@@ -40,9 +40,9 @@ class Solution:
         while top_row <= bottom_row:
             mid = (top_row + bottom_row) // 2    
             mid_row = matrix[mid]            
-            
             if mid_row[0] <= target <= mid_row[-1]:
                 break
+                
             if mid_row[0] < target:
                 top_row = mid + 1
             else:
@@ -59,9 +59,9 @@ class Solution:
             mid = (left + right) // 2
             if target_row[mid] == target:
                 return True
+              
             if target_row[mid] < target:
                 left = mid + 1
             else:
                 right = mid - 1
-        
         return False
