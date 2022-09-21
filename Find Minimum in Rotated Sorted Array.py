@@ -23,6 +23,17 @@ class Solution:
         if nums[left] < nums[right]:
             return min_element
 
+        # Only two scenarios could happen:
+            # [5, 1, 2, 3, 4]
+            # [4, 5, 6, 2, 3]
+        # When mid is less than right:
+        #       the min will be on the left of mid
+        # When mid is greater than right:
+        #       the min will be on the right of mid
+        
+        # The reason we only want to look at the rightmost value instead of the leftmost is
+        # becasue leftmost is guaranteed to be greater than the rightmost. Otherwise, the list is never rotated.
+        
         # We want to find the unsorted side because the min will always be in the unsorted side.
         while left <= right:
             mid = (left + right) // 2
