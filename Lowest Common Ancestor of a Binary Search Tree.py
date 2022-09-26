@@ -13,8 +13,8 @@ class Solution:
             return root
         
         # If both are the direct children of a root node, return the current root node
-        if (root.left == p.val and root.right == q.val) or (root.left == q.val and root.right == p.val):
-            return root
+#         if (root.left == p.val and root.right == q.val) or (root.left == q.val and root.right == p.val):
+#             return root
         
         # If both are not in the same subtree and have different parents, return the current root node
         if (p.val < root.val and q.val > root.val) or (p.val > root.val and q.val < root.val):
