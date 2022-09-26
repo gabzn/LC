@@ -12,6 +12,7 @@ class Solution:
         
         # We want to keep track of the max we've seen so far so we can compare if the next node is a good node or not.
         # Starting from the topmost root node, the val of root will be the max we've seen so far.
+        # Answer = The # of good nodes on the left and right subtrees + the root node.
         return 1 + self.dfs(root.left, root.val) + self.dfs(root.right, root.val)
         
     def dfs(self, root, cur_max):
