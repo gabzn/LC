@@ -11,19 +11,19 @@ class Solution:
         if not root:
             return []
         
+        # BFS Problem
         res = []
         queue = deque()
         queue.append(root)
         
         while queue:
-            # We use a list to store all the nodes in the current level
-            # The number of pop depends on how many nodes there are on the current level,
+            # The number of pop operation depends on how many nodes there are on the current level,
             # We can find that just be looking at the current length of the queue.
-            nodes_in_cur_level = []
             num_of_nodes_to_pop = len(queue)
-            
-            for num in range(num_of_nodes_to_pop):
-                # We want to pop every node in the current level and store its children.
+            nodes_in_cur_level = []
+        
+            for _ in range(num_of_nodes_to_pop):
+                # We want to pop every node in the current level and store its non-null children.
                 node = queue.popleft()
                 nodes_in_cur_level.append(node.val)
                 
