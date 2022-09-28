@@ -7,6 +7,8 @@ class Solution:
         return self.validate(root, -math.inf, math.inf)
         
     # The boundaries will be adjusted depends on whether we are checking the left subtree or the right subtree. 
+    # The reason we change only either the min or max is because we are checking a node from its parent perspective.
+    # We are asking if the current node is less than or greater than its parent node.
     def validate(self, root, min_boundary, max_boundary):
         if not root:
             return True
