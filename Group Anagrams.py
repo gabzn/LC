@@ -7,31 +7,27 @@ Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
 
 https://leetcode.com/problems/group-anagrams/  
   
+from collections import defaultdict
+
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         if len(strs) == 1:
             return [[strs[0]]]
         
-        # anagrams = []
+        anagram_dict = defaultdict(list)
         
-        # Go through each str to find the letter count
-        anagram_dict = dict()
-        for each_str in strs:
+        for s in strs:
             letter_count = [0] * 26
-            for letter in each_str:
-                letter_count[ord(letter) - ord('a')] += 1
             
-            letter_count_tuple = tuple(letter_count)
+            # Find the letter count of each str, then use a dict to hash it.
+            # If the same letter count already showed up, that means this str is an anagram with something else.
+            for letter in s:
+                letter_index = ord(letter) - ord('a')
+                letter_count[letter_index] += 1
             
-            # Use a dict to check if this combination already exists
-            #     1: If it exists, that means they are anagrams and put them in a list.
-            #     2: If it doesn't exist, that means it's not an anagram with any str.
-            if letter_count_tuple not in anagram_dict:
-                anagram_dict[letter_count_tuple] = [each_str]
-            else:
-                anagram_dict[letter_count_tuple].append(each_str)
+            # Since list is not hashable, we convert it to either a string or tuple to hash it.
+            # Since defaultdict initializes empty lists for us, we don't need to do the if-statement here.
+            letter_count_hashable = tuple(letter_count)
+            anagram_dict[letter_count_hashable].append(s)
         
-        # for value in anagram_dict.values():
-        #     anagrams.append(value)
-                
         return anagram_dict.values()
