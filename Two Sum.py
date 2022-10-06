@@ -1,5 +1,17 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        num_dict = dict()
+
+        for index, num in enumerate(nums):
+            difference = target - num
+            if difference in num_dict:
+                return index, num_dict[difference]
+        
+            num_dict[num] = index
+            
+            
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         if len(nums) == 2:
             return [0, 1]
         
@@ -15,5 +27,3 @@ class Solution:
                 return [index, complement_dict[complement]]
             
             complement_dict[num] = index
-        
-        return None
