@@ -30,3 +30,28 @@ class Solution:
                     return False
                 
         return len(p_stack) == 0
+-------------------------------------------------------------------------------------------------
+class Solution:
+    def isValid(self, s: str) -> bool:
+        if len(s) % 2 == 1:
+            return False
+        
+        stack = []
+        for p in s:
+            if p == '(' or p == '{' or p == '[':
+                stack.append(p)
+            else:
+                if not stack:
+                    return False
+                
+                open_p = stack.pop()
+                if p == ')' and open_p != '(':
+                    return False
+                if p == '}' and open_p != '{':
+                    return False
+                if p == ']' and open_p != '[':
+                    return False
+        
+        if stack:
+            return False
+        return True
