@@ -4,6 +4,37 @@ Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0'
 An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. 
 You may assume all four edges of the grid are all surrounded by water.
 
+
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        stack = []
+        islands = 0
+            
+        for r in range(len(grid)):
+            for c in range(len(grid[r])):
+                if grid[r][c] == '1':
+                    stack.append((r, c))
+                    
+                    self.dfs(grid, len(grid), len(grid[r]), stack)
+                    islands += 1
+        
+        return islands
+    
+    def dfs(self, grid, max_r, max_c, stack):
+        while stack:
+            land_r, land_c = stack.pop()
+            grid[land_r][land_c] = '0'
+                        
+            potential_lands = [(land_r-1, land_c), (land_r+1, land_c), (land_r, land_c-1), (land_r, land_c+1)]
+            for potential_land in potential_lands:
+                potential_land_r, potential_land_c = potential_land
+                            
+                if self.is_a_valid_land(grid, potential_land_r, potential_land_c, max_r, max_c):
+                    stack.append(potential_land)
+                    
+    def is_a_valid_land(self, grid, r, c, max_r, max_c):
+        return 0 <= r < max_r and 0 <= c < max_c and grid[r][c] == '1'
+------------------------------------------------------------------------------------------------------------------------------------------------------------
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:   
         if not grid:
