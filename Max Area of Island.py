@@ -94,3 +94,31 @@ class Solution:
                     max_area = max(max_area, area)
                             
         return max_area
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution:
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+        max_area = 0
+        
+        for row in range(len(grid)):
+            for col in range(len(grid[row])):
+                if grid[row][col] == 1:
+                    area = 0
+                    
+                    stack = [(row, col)]
+                    while stack:
+                        land_r, land_c = stack.pop()
+                        if grid[land_r][land_c] == 0:
+                            continue
+                        grid[land_r][land_c] = 0
+                        area += 1
+                        
+                        potential_neighbours = [(land_r-1, land_c), (land_r+1, land_c), (land_r, land_c-1), (land_r, land_c+1)]
+                        for neighbour in potential_neighbours:
+                            neighbour_r, neighbour_c = neighbour
+                            
+                            if 0 <= neighbour_r < len(grid) and 0 <= neighbour_c < len(grid[row]) and grid[neighbour_r][neighbour_c] == 1:
+                                stack.append(neighbour)
+                    
+                    max_area = max(max_area, area)
+                    
+        return max_area
