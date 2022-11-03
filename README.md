@@ -13,10 +13,11 @@ A heap is a tree based data structure that satisfies the heap property.
 
 2 types of heaps:
 
-    Binary Max Heap
+    Max Heap
     
-    Binary Min Heap
+    Min Heap
 
+Although it's very common to see heap being binary, it's not always the case.
 
 ## Priority Queue
 Priority queues are abstract data structures meaning it can be implemented by multiple data structures.
