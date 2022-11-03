@@ -12,6 +12,7 @@ BFS uses a queue
 A heap is a tree based data structure that satisfies the heap property.
 
 2 types of heaps:
+
     Binary Max Heap
     
     Binary Min Heap
