@@ -19,6 +19,8 @@ A heap is a tree based data structure that satisfies the heap property.
 
 Although it's very common to see heap being binary, it's not always the case.
 
+Trees cannot contain cycles. So, heaps cannot contain cycles too.
+
 ## Priority Queue
 Priority queues are abstract data structures meaning it can be implemented by multiple data structures.
 
