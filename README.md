@@ -7,3 +7,11 @@ ord('a') - 97 = 0
 DFS uses a stack
 
 BFS uses a queue
+
+## Heap
+A heap is a tree based data structure that satisfies the heap property.
+
+2 types of heaps:
+    Binary Max Heap
+    
+    Binary Min Heap
