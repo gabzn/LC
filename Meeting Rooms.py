@@ -1,3 +1,34 @@
+https://leetcode.com/problems/meeting-rooms/
+
+Given an array of meeting time intervals where intervals[i] = [starti, endi], determine if a person could attend all meetings.
+
+Input: intervals = [[0,30],[5,10],[15,20]]
+Output: false
+
+Input: intervals = [[7,10],[2,4]]
+Output: true
+
+class Solution:
+    def canAttendMeetings(self, intervals: List[List[int]]) -> bool:
+        if not intervals or len(intervals) == 1:
+            return True
+        
+        intervals.sort(key=lambda interval: interval[0])
+        
+        l, r = 0, 1
+        while r < len(intervals):
+            first_meeting = intervals[l]
+            second_meeting = intervals[r]
+            
+            if first_meeting[1] > second_meeting[0]:
+                return False
+            
+            l += 1
+            r += 1
+            
+        return True
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------- 
 https://www.lintcode.com/problem/920/description
   
 Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei), 
