@@ -5,6 +5,53 @@ https://leetcode.com/problems/insert-delete-getrandom-o1/
 # To remove an element, we replace val with the last element in the list.
 # After replacing it, we need to change the value for this val.
 
+import random
+class RandomizedSet:
+
+    def __init__(self):
+        self.values = []
+        self.value_index_dict = dict()
+        
+    def insert(self, val: int) -> bool:
+        if val in self.value_index_dict:
+            return False
+        
+        self.value_index_dict[val] = len(self.values)
+        self.values.append(val)
+        
+        return True
+
+    def remove(self, val: int) -> bool:
+        if val not in self.value_index_dict:
+            return False
+        
+        # First check if val is the last element in the list.
+        if val == self.values[-1]:
+            self.values.pop()
+            del self.value_index_dict[val]
+            return True
+        
+        # Find what index val is in the list
+        val_index = self.value_index_dict[val]
+        
+        # Delete val from dict
+        del self.value_index_dict[val]
+        
+        # Put the last element to where val_index is
+        self.values[val_index] = self.values[-1]
+        
+        # Update the dict
+        self.value_index_dict[self.values[-1]] = val_index
+        
+        # Pop out the last element
+        self.values.pop()
+        
+        return True
+        
+    def getRandom(self) -> int:
+        return random.choice(self.values)
+    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 class RandomizedSet:
 
     def __init__(self):
