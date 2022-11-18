@@ -5,7 +5,26 @@ Given an integer array nums, return the length of the longest strictly increasin
 Input: nums = [10,9,2,5,3,7,101,18]
 Output: 4
 Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
-  
+
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        """
+        Every num itself is a increasing subsequence of length 1
+        So we fill out a dp array of size 1
+        Start looping through num from the second index,
+            if current num is greater than any num prior to it, we want to know if adding current num to prior num will make a longer sequence.
+        """
+        dp = [1] * len(nums)
+        max_len = 1
+        
+        for right in range(1, len(nums)):
+            for left in range(0, right):
+                if nums[left] < nums[right]:
+                    dp[right] = max(dp[right], 1 + dp[left])
+                    max_len = max(max_len, dp[right])
+        
+        return max_len 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
         """
