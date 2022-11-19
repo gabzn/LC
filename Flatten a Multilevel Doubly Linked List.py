@@ -1,5 +1,39 @@
 https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/
-  
+
+class Solution:
+    def flatten(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        if not head:
+            return head
+        
+        ptr, stack = head, []
+        while ptr:
+            # Handle the case when a node has child.
+            if ptr.child:    
+                if ptr.next:
+                    stack.append(ptr.next)
+                    ptr.next.prev = None
+
+                ptr.next = ptr.child
+                ptr.next.prev = ptr
+                ptr.child = None
+            
+            """
+            When ptr next is None, that means ptr has gone through all the nodes on the current level.
+            Time to connect the previous upper level, but we need to check if there's an upper level we can connect.
+                Check if the stack is empty, if it is that means there's no more upper level and we are at the end of the linked list.
+            """
+            if not ptr.next:
+                if stack:
+                    upper_level_node = stack.pop()
+                    ptr.next = upper_level_node
+                    ptr.next.prev = ptr
+                else:
+                    break
+                    
+            ptr = ptr.next
+            
+        return head 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
 class Solution:
     def flatten(self, head: 'Optional[Node]') -> 'Optional[Node]':
         ptr, end = head, head
