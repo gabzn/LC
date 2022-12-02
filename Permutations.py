@@ -8,7 +8,7 @@ class Solution:
 
     def solve(self, nums, res, permutation, used_nums):
         if len(permutation) == len(nums):  # Goal is when all nums have been used
-            res.append(permutation.copy())
+            res.append(permutation[:])     # list[:] = list.copy()
             return
         
         # Explore every choice using a for loop
