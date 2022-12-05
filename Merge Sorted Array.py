@@ -9,7 +9,7 @@ class Solution:
         n -= 1
         ptr = len(nums1) - 1
         
-        while ptr >= 0 and n >= 0 and m >= 0:
+        while n >= 0 and m >= 0:
             if nums2[n] >= nums1[m]:
                 nums1[ptr] = nums2[n]
                 n -= 1
@@ -18,8 +18,9 @@ class Solution:
                 m -= 1
             
             ptr -= 1
-            
-        while ptr >= 0 and n >= 0:
+        
+        # If possible, fill nums1 with whatever is left in nums2
+        while n >= 0:
             nums1[ptr] = nums2[n]
             ptr -= 1
             n -= 1
