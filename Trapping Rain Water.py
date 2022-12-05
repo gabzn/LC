@@ -7,7 +7,7 @@ class Solution:
         
         """
         Very important! If you remember this, you'll know how to solve this problem.
-        For each cell, how much water is trapped depends on the min of my max left and max right.
+        For each cell, how much water is trapped on that cell depends on the min of my max left and max right.
         So, we compute the left max and right max for each cell first.
         """
         for ind in range(0, H):
