@@ -8,4 +8,7 @@ class Solution:
         if low <= root.val <= high:
             return root.val + self.rangeSumBST(root.left, low, high) + self.rangeSumBST(root.right, low, high)
         
-        return self.rangeSumBST(root.left, low, high) + self.rangeSumBST(root.right, low, high)
+        if root.val > high:
+            return self.rangeSumBST(root.left, low, high)
+        else:   
+            return self.rangeSumBST(root.right, low, high)
