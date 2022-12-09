@@ -1,8 +1,3 @@
-Given two strings s and t, determine if they are isomorphic.
-
-Two strings s and t are isomorphic if the characters in s can be replaced to get t.
-
-All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.
 https://leetcode.com/problems/isomorphic-strings/
 
 Example 1:
@@ -17,7 +12,20 @@ Example 3:
 Input: s = "paper", t = "title"
 Output: true
   
-  
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        s_to_t, t_to_s = dict(), dict()
+        
+        for s_char, t_char in zip(s, t):
+            if s_char not in s_to_t and t_char not in t_to_s:
+                s_to_t[s_char] = t_char
+                t_to_s[t_char] = s_char
+            
+            if (s_char in s_to_t and s_to_t[s_char] != t_char) or (t_char in t_to_s and t_to_s[t_char] != s_char):
+                return False
+            
+        return True
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
         if s == t: 
