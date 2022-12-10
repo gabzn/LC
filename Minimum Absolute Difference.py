@@ -18,3 +18,28 @@ class Solution:
                 answer.append([arr[ind-1], arr[ind]])
         
         return answer
+
+---------------------------------------------------------------------------------------------------------
+class Solution:
+    def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
+        arr.sort()
+        answer = []
+        min_abs_difference = math.inf
+        
+        for ind in range(1, len(arr)):
+            difference = arr[ind] - arr[ind-1]
+            
+            # If the current difference is the min_abs_difference, 
+            # append the current pair to answer and go to next the iteration.
+            if min_abs_difference == difference:
+                answer.append([arr[ind-1], arr[ind]])
+                continue
+            
+            # If the current difference is smaller,
+            # drop all the previous pairs, append the current pair 
+            # and set min_abs_difference to the new min.
+            if min_abs_difference > difference:
+                answer = [[arr[ind-1], arr[ind]]]        
+                min_abs_difference = difference
+        
+        return answer
