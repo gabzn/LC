@@ -10,8 +10,21 @@ Output: 2
 
 Input: s = "aabb"
 Output: -1
-  
-  
+ 
+from collections import Counter
+
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        # Go through the string and save the number of times each character appears in a counter.
+        counter = Counter(s)
+        
+        # Go through the string second time, use the counter to check if a character shows up only once.
+        for ind, char in enumerate(s):
+            if counter[char] == 1:
+                return ind
+            
+        return -1
+--------------------------------------------------------------------------------------------------------------------------------------------------------------  
 from collections import defaultdict
 class Solution:
     def firstUniqChar(self, s: str) -> int:
