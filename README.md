@@ -3,6 +3,11 @@ ord('a') -> 97
 
 ord('a') - 97 = 0
 
+## How to check if a char is a digit or a letter
+char.isnumeric()   -> checks if a char is a digit/number
+
+char.isalpha()    -> checks if a char is a letter
+
 ## DFS & BFS
 DFS uses a stack
 
