@@ -2,8 +2,7 @@ https://leetcode.com/problems/range-sum-query-immutable/
   
 class NumArray:
     def __init__(self, nums: List[int]):
-        self.nums = nums
-        self.prefix_sum_nums = self.build_prefix_sum_nums(self.nums)
+        self.prefix_sum_nums = self.build_prefix_sum_nums(nums)
 
     def sumRange(self, left: int, right: int) -> int:
         if left == 0:
