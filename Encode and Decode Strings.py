@@ -17,25 +17,25 @@ class Codec:
 
     def decode(self, s: str) -> List[str]:
         decoded_strs = []
-        pointer, LEN = 0, len(s)
+        index, LEN = 0, len(s)
         
-        while pointer < LEN:
+        while index < LEN:
             cur_len, cur_str = '', ''
             seen_delimeter = False
             
             while not seen_delimeter:
-                cur_char = s[pointer]
+                cur_char = s[index]
                 if cur_char == '!':
                     seen_delimeter = True
                 else:
                     cur_len = cur_len + cur_char
-                pointer += 1
+                index += 1
                  
             cur_len = int(cur_len)
             while cur_len:
-                cur_str = cur_str + s[pointer]
+                cur_str = cur_str + s[index]
                 cur_len -= 1
-                pointer += 1
+                index += 1
             
             decoded_strs.append(cur_str)
         return decoded_strs
