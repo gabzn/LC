@@ -37,6 +37,8 @@ Priority queues are abstract data structures meaning it can be implemented by mu
 1. Prefix Sum
 2. Monetomic stack
 3. Priority queue
-4. Backtracking
-5. Union Find
-6. Subsequences & Substrings
+4. Heap
+5. Backtracking
+6. Union Find
+7. Subsequences & Substrings
+
