@@ -13,3 +13,10 @@ class Solution:
             moves += (nums[index] - nums[0])
         
         return moves
+
+class Solution:
+    def minMoves(self, nums: List[int]) -> int:
+        total_sum = sum(nums)
+        min_num = min(nums)
+        
+        return total_sum - (len(nums) * min_num)
