@@ -57,11 +57,10 @@ Priority queues are abstract data structures meaning it can be implemented by mu
 2: It could also be implemented using a heap. A heap will adjust the priority automatically using bubble up/down after each insertion.
 
 ## ``Something to look at later``
-1. Prefix Sum
-2. Monotonic Stack
 3. Priority queue & Heap
 4. Backtracking
 5. Union Find
 6. Subsequences & Substrings
 7. Jump game
 8. Monotonic Queue
+9. Matrix
