@@ -8,7 +8,7 @@ class Solution:
         
         If the digits are not the same, but the current running sums are the same. That means sorting this part could make a chunk.
         """
-        sorted_arr = sorted(arr.copy())
+        sorted_arr = sorted(arr)
         unsorted_sum, sorted_sum, res = 0, 0, 0
         
         for num_sorted, num_unsorted in zip(sorted_arr, arr):
