@@ -1,5 +1,26 @@
 https://leetcode.com/problems/permutations/
-  
+
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        return self.backtrack(nums, [], [], set())
+    
+    def backtrack(self, nums, current, res, visited_nums):
+        if len(current) == len(nums):
+            res.append(current.copy())
+            return res
+        
+        for num in nums:
+            if num not in visited_nums:
+                visited_nums.add(num)
+                current.append(num)
+                res = self.backtrack(nums, current, res, visited_nums)
+                
+                # Clean up
+                current.pop()
+                visited_nums.remove(num)
+            
+        return res
+-------------------------------------------------------------------------------------------------
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         res = []
