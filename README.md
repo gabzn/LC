@@ -60,11 +60,19 @@ Priority queues are abstract data structures meaning it can be implemented by mu
 
 ## ``Something to look at later``
 <s>Priority queue & Heap</s>
+
 Backtracking
+
 Union Find
+
 Subsequences & Substrings
+
 Monotonic Queue
+
 Matrix
+
 Sliding Window
+
 Binary Search
+
 DP - Jump game
