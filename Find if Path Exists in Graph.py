@@ -2,6 +2,35 @@ https://leetcode.com/problems/find-if-path-exists-in-graph/
 
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
+        def find(x):
+            if x == root[x]:
+                return x
+            
+            x = find(root[x])
+            return x
+        
+        def union(x, y):
+            root_x, root_y = find(x), find(y)
+            
+            if root_x != root_y:
+                if rank[root_x] > rank[root_y]:
+                    root[root_y] = root_x
+                elif rank[root_x] < rank[root_y]:
+                    root[root_x] = root_y
+                else:
+                    root[root_y] = root_x
+                    rank[root_x] += 1
+            
+        root = [i for i in range(n + 1)]        
+        rank = [1 for i in range(n + 1)]
+        
+        for x, y in edges:
+            union(x, y)
+        
+        return find(source) == find(destination)    
+----------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution:
+    def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
         if n == 1:
             return True
         
