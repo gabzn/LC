@@ -6,8 +6,8 @@ class Solution:
             if x == root[x]:
                 return x
             
-            x = find(root[x])
-            return x
+            root[x] = find(root[x])
+            return root[x]
         
         def union(x, y):
             root_x, root_y = find(x), find(y)
@@ -27,7 +27,7 @@ class Solution:
         for x, y in edges:
             union(x, y)
         
-        return find(source) == find(destination)    
+        return find(source) == find(destination) 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
