@@ -1,5 +1,42 @@
 https://leetcode.com/problems/graph-valid-tree/
-  
+
+class Solution:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        def find(x):
+            if x == root[x]:
+                return x
+            
+            root[x] = find(root[x])
+            return root[x]
+        
+        def union(x, y):
+            root_x, root_y = find(x), find(y)
+            
+            if root_x == root_y:
+                return False
+            
+            if rank[root_x] > rank[root_y]:
+                root[root_y] = root_x
+            elif rank[root_x] < rank[root_y]:
+                root[root_x] = root_y
+            else:
+                root[root_y] = root_x
+                rank[root_x] += 1
+            
+            return True
+        
+        if len(edges) != n - 1: 
+            return False
+
+        root = [i for i in range(n)]
+        rank = [1 for _ in range(n)]
+        
+        for a, b in edges:
+            if not union(a, b):
+                return False
+        
+        return True                 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
         if n <= len(edges):
@@ -76,25 +113,3 @@ class Solution:
             graph[end].append(start)
 
         return graph     
-    
-"""
-    def validTree(self, n: int, edges: List[List[int]]) -> bool:
-        graph = self.convert_edges_to_graph(edges)
-        visited_nodes = set()
-                
-        return self.dfs(graph, 0, -1, visited_nodes) and len(visited_nodes) == n
-            
-    def dfs(self, graph, node, parent_node, visited_nodes):
-        visited_nodes.add(node)
-        
-        for neighbour in graph[node]:
-            if neighbour == parent_node:
-                continue
-            
-            if neighbour in visited_nodes:
-                return False
-            
-            self.dfs(graph, neighbour, node, visited_nodes)
-        
-        return True
-"""
