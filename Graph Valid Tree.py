@@ -1,11 +1,38 @@
 https://leetcode.com/problems/graph-valid-tree/
   
-You have a graph of n nodes labeled from 0 to n - 1. 
-You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi in the graph.
-
-Return true if the edges of the given graph make up a valid tree, and false otherwise.
-
-
+class Solution:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        if n <= len(edges):
+            return False
+        
+        graph = self.make_graph(edges)
+        visited_nodes = set()
+        queue = deque()
+        queue.append((0, 0))
+        
+        while queue:
+            parent, node = queue.popleft()
+            visited_nodes.add(node)
+            
+            # To avoid cycle, I need to know who my parent node is.
+            for neighbour in graph[node]:
+                if neighbour == parent:
+                    continue
+                
+                if neighbour in visited_nodes:
+                    return False
+                
+                queue.append((node, neighbour))    
+        
+        return len(visited_nodes) == n
+    
+    def make_graph(self, edges):
+        graph = collections.defaultdict(list)
+        for a, b in edges:
+            graph[a].append(b)
+            graph[b].append(a)
+        return graph
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 from collections import defaultdict
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
