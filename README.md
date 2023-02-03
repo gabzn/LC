@@ -81,3 +81,5 @@ Binary Search
 DP - Jump game
 
 Segment Tree
+
+DFS + BFS
