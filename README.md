@@ -20,12 +20,15 @@ If the max size is 10^4, n^2 is the max you can do.
 
 If the max size is 10^5, n^2 solution will not pass. The max you can do is nlog(n).
 
-## ``How to convert a char into its ascii value``
+## ``How to convert a char into its ascii value and the opposite``
 ord('a') -> 97
 
-ord('a') - 97 = 0
+ord('a') - ord('a') = 0
 
-## How to check if a char is a digit or a letter
+chr(ord('a')) = 'a'
+
+
+## ``How to check if a char is a digit or a letter``
 char.isnumeric()   -> checks if a char is a digit/number
 
 char.isalpha()    -> checks if a char is a letter
