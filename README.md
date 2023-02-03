@@ -66,7 +66,7 @@ Priority queues are abstract data structures meaning it can be implemented by mu
 
 <s>Backtracking</s>
 
-Union Find
+<s>Union Find</s>
 
 Subsequences & Substrings
 
@@ -79,3 +79,5 @@ Sliding Window
 Binary Search
 
 DP - Jump game
+
+Segment Tree
