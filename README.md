@@ -61,6 +61,11 @@ Priority queues are abstract data structures meaning it can be implemented by mu
 
 2: It could also be implemented using a heap. A heap will adjust the priority automatically using bubble up/down after each insertion.
 
+## ``Sliding Window``
+Always a good idea to think of sliding window when the problem has keywords like <b>consecutive</b>, <b>contiguous</b>, <b>subarray</b> and <b>substring</b>, and the input is a string or array.
+
+Also, if the problem has a requirement like pick x something from the list and the ordering doesn't matter, think about sorting the list then apply sliding window.
+
 ## ``Something to look at later``
 <s>Priority queue & Heap</s>
 
