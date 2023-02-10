@@ -76,6 +76,8 @@ Binary Search
 
 DFS + BFS
 
+Greedy
+
 DP - Jump game
 
 Segment Tree
