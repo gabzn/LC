@@ -68,18 +68,20 @@ Priority queues are abstract data structures meaning it can be implemented by mu
 
 <s>Union Find</s>
 
-Subsequences & Substrings
-
-Monotonic Queue
+Sliding Window
 
 Matrix
 
-Sliding Window
-
 Binary Search
+
+DFS + BFS
 
 DP - Jump game
 
 Segment Tree
 
-DFS + BFS
+Prefix Sum
+
+Subsequences & Substrings
+
+Monotonic Queue
