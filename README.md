@@ -70,6 +70,8 @@ https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-charac
 
 https://leetcode.com/problems/fruit-into-baskets/
 
+https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/
+
 ## ``Something to look at later``
 <s>Priority queue & Heap</s>
 
