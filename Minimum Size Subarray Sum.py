@@ -1,5 +1,20 @@
 https://leetcode.com/problems/minimum-size-subarray-sum/
-  
+
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        res = math.inf
+        l, running_sum = 0, 0
+        
+        for r in range(len(nums)):
+            running_sum += nums[r]
+            
+            while running_sum >= target:
+                res = min(res, r - l + 1)
+                running_sum -= nums[l]
+                l += 1
+            
+        return res if res != math.inf else 0
+---------------------------------------------------------------------------------------------------------------------------------------------------
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
         LEN = len(nums)
