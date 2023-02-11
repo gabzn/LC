@@ -66,6 +66,9 @@ Always a good idea to think of sliding window when the problem has keywords like
 
 Also, if the problem has a requirement like pick x something from the list and the ordering doesn't matter, think about sorting the list then apply sliding window.
 
+https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/
+https://leetcode.com/problems/fruit-into-baskets/
+
 ## ``Something to look at later``
 <s>Priority queue & Heap</s>
 
