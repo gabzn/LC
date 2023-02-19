@@ -10,9 +10,9 @@ class Solution:
             product *= nums[r]
         
             while l <= r and product >= k:
-                product = product // nums[l]
+                product //= nums[l]
                 l += 1
             
             res += r - l + 1
-
+            
         return res
