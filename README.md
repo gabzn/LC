@@ -75,6 +75,8 @@ https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characte
 ## ``Binary Search Stuff``
 https://leetcode.com/discuss/general-discussion/786126/Python-Powerful-Ultimate-Binary-Search-Template.-Solved-many-problems
 
+https://www.youtube.com/watch?v=JuDAqNyTG4g&t=483s
+
 ## ``Something to look at later``
 <s>Priority queue & Heap</s>
 
