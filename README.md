@@ -77,6 +77,8 @@ https://leetcode.com/discuss/general-discussion/786126/Python-Powerful-Ultimate-
 
 https://www.youtube.com/watch?v=JuDAqNyTG4g&t=483s
 
+https://www.youtube.com/watch?v=tgVSkMA8joQ
+
 ## ``Something to look at later``
 <s>Priority queue & Heap</s>
 
