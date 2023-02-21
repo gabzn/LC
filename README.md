@@ -84,11 +84,11 @@ https://www.youtube.com/watch?v=JuDAqNyTG4g&t=483s
 
 <s>Union Find</s>
 
-Sliding Window
-
-Matrix
+<s>Sliding Window</s>
 
 Binary Search
+
+Matrix
 
 DFS + BFS
 
