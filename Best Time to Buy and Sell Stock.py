@@ -2,8 +2,7 @@ https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
   
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        max_profit = 0
-        buy = prices[0]
+        buy, max_profit = prices[0], 0
         
         for price in prices:
             if price < buy:
