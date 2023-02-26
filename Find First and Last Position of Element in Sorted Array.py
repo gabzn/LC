@@ -1,10 +1,39 @@
 https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
-  
-Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
-If target is not found in the array, return [-1, -1].
+bisect_left and bisect_right problem
 
-You must write an algorithm with O(log n) runtime complexity.
-
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        res = [-1, -1]
+        if not nums:
+            return res
+                    
+        l, r = 0, len(nums)
+        while l < r:
+            m = (l + r) // 2
+            
+            if nums[m] < target:
+                l = m + 1
+            else:
+                r = m
+        
+        if l < len(nums) and nums[l] == target:
+            res[0] = l
+        
+        
+        l, r = 0, len(nums)
+        while l < r:
+            m = (l + r) // 2
+            
+            if nums[m] > target:
+                r = m
+            else:
+                l = m + 1
+        
+        if l - 1 < len(nums) and nums[l - 1] == target:
+            res[1] = l - 1
+        
+        return res  
+------------------------------------------------------------------------------------------------------------------------------------------------------
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
         if not nums:
