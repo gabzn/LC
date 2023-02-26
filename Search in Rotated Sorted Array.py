@@ -1,13 +1,33 @@
-There is an integer array nums sorted in ascending order. 
-Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
+https://leetcode.com/problems/search-in-rotated-sorted-array/
 
-Input: nums = [4,5,6,7,0,1,2], target = 0
-Output: 4
-  
-Input: nums = [4,5,6,7,0,1,2], target = 3
-Output: -1
-
-
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        l, r = 0, len(nums) - 1
+        
+        # The general idea is to look at the side that is in increasing order!!!
+        while l <= r:
+            m = (l + r) // 2
+            if nums[m] == target:
+                return m
+            
+            # When the left half is not rotated meaning the left half still has increasing order
+            if nums[m] >= nums[l]:
+                # and target falls under the range nums[l] <= t <= nums[m]
+                if nums[l] <= target < nums[m]:
+                    r = m - 1
+                else:
+                    l = m + 1
+                    
+            # When the left half is rotated, the right half has to be in increasing order
+            else:
+                # and target falls under the range 
+                if nums[m] < target <= nums[r]:
+                    l = m + 1
+                else:
+                    r = m - 1
+                    
+        return -1
+------------------------------------------------------------------------------------------------------------------------------------------------------  
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         if len(nums) == 1 and nums[0] == target:
