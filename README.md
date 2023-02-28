@@ -90,13 +90,13 @@ https://www.youtube.com/watch?v=tgVSkMA8joQ
 
 Binary Search
 
+DP
+
 Matrix
 
 DFS + BFS
 
 Greedy
-
-DP - Jump game
 
 Segment Tree
 
