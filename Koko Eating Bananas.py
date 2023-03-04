@@ -1,6 +1,29 @@
 https://leetcode.com/problems/koko-eating-bananas/
-Very interesting question. Binary Search might not seem obvious.
-  
+
+
+class Solution:
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        l, r = 0, max(piles) + 1
+        
+        while l + 1 != r:
+            m = (l + r) // 2
+            
+            if self.can_finish(piles, m, h):
+                r = m
+            else:
+                l = m
+        
+        return r
+    
+    def can_finish(self, piles, m, h):
+        for p in piles:
+            if p <= m:
+                h -= 1
+            else:
+                h -= math.ceil(p / m)
+                
+        return h >= 0
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
         
