@@ -101,7 +101,7 @@ return either l or r
 
 <s>Sliding Window</s>
 
-Binary Search
+<s>Binary Search</s>
 
 DP
 
