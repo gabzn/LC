@@ -79,6 +79,19 @@ https://www.youtube.com/watch?v=JuDAqNyTG4g&t=483s
 
 https://www.youtube.com/watch?v=tgVSkMA8joQ
 
+A template for binary search for lower bound or upper bound:
+
+```python
+
+l, r = -1, len(nums)
+
+while l + 1 != r:
+    do something here
+
+return either l or r
+
+```
+
 ## ``Something to look at later``
 <s>Priority queue & Heap</s>
 
