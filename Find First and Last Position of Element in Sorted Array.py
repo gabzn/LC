@@ -6,6 +6,40 @@ class Solution:
         res = [-1, -1]
         if not nums:
             return res
+        
+        # Find the first position                 
+        l, r = -1, len(nums)
+        while l + 1 != r:
+            m = (l + r) // 2
+            
+            if nums[m] < target:
+                l = m
+            else:
+                r = m
+        
+        if r == len(nums) or nums[r] != target:
+            return res
+        else:
+            res[0] = r
+         
+        # Find the last position
+        l, r = -1, len(nums)
+        while l + 1 != r:
+            m = (l + r) // 2
+            
+            if nums[m] <= target:
+                l = m
+            else:
+                r = m
+        
+        res[1] = l
+        return res
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        res = [-1, -1]
+        if not nums:
+            return res
                     
         l, r = 0, len(nums)
         while l < r:
