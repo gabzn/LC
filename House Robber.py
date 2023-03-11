@@ -1,5 +1,20 @@
 https://leetcode.com/problems/house-robber/
-  
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        return self.dp(nums, len(nums) - 1, {})
+
+    def dp(self, nums, i, memo):
+        if i == 0:
+            return nums[0]
+        if i == 1:
+            return max(nums[0], nums[1])
+        
+        if i not in memo:
+            memo[i] = max(nums[i] + self.dp(nums, i - 2, memo), self.dp(nums, i - 1, memo))
+        
+        return memo[i]
+--------------------------------------------------------------------------------------------------------------------  
 class Solution:
     def rob(self, nums: List[int]) -> int:      
         if 1 <= len(nums) <= 2:
@@ -14,15 +29,3 @@ class Solution:
             dp[i] = max(dp[i-1], dp[i-2] + nums[i])
         
         return dp[-1]
-
-#         max_money = nums[0]
-        
-#         for i in range(1, len(nums)):
-#             previous_max = 0
-#             for j in range(0, i-1):
-#                 previous_max = max(previous_max, nums[j])
-            
-#             nums[i] += previous_max
-#             max_money = max(nums[i], max_money)
-        
-#         return max_money
