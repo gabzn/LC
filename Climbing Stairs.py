@@ -1,9 +1,18 @@
 https://leetcode.com/problems/climbing-stairs/
-  
-You are climbing a staircase. It takes n steps to reach the top.
 
-Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
-
+ class Solution:
+    def climbStairs(self, n: int) -> int:
+        return self.climb(n, dict())
+        
+    def climb(self, n, memo):
+        if n <= 2:
+            return n
+        
+        if n not in memo:
+            memo[n] = self.climb(n - 1, memo) + self.climb(n - 2, memo) 
+            
+        return memo[n] 
+---------------------------------------------------------------------------------------------------------------------------------
 class Solution:
     def climbStairs(self, n: int) -> int:
         if n == 1:
