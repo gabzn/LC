@@ -94,6 +94,8 @@ return either l or r
 ## ``DP``
 Top-down (memoization) uses recursion. When try to solve a DP problem using this approach, there's usually a recursive function that does the work. Two things to think about before designing such a recursive function. 1: State variables (what we care about at the current step) and 2: what this recursive function returns. Example: if a question is asking for the max or min of performing some actions. The function can return the max or min when we are performing the i-th action where i is also the state variable.
 
+Bottom-up (Tabulation) uses iteration. More 
+
 ## ``Something to look at later``
 <s>Priority queue & Heap</s>
 
