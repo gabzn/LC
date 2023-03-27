@@ -5,23 +5,23 @@ class Solution:
         if len(jobDifficulty) < d:
             return -1
         
-        if len(jobDifficulty) == d:
-            return sum(jobDifficulty)
+        N = len(jobDifficulty)
         
-        # dp(i, cur_day) returns us the mim difficulty starting at job i at cur_day
-        def dp(i, cur_day, memo):
-            if cur_day == d:
-                return max(jobDifficulty[i:])
+        #dp(i, j) tells us the min difficulty at i-th day and j-th job
+        def dp(i_day, j_job, memo):
+            # If it is the last day, we need to finish up all the remaining jobs on this day, 
+            # and the difficulty of that day will just be the max of the remaining jobs
+            if i_day == d:
+                return max(jobDifficulty[j_job: ])
             
-            hardest, res = jobDifficulty[i], math.inf
-            
-            # caching happens here
-            if (i, cur_day) not in memo:    
-                for j in range(i, len(jobDifficulty) - (d - cur_day)):
-                    hardest = max(hardest, jobDifficulty[j])
-                    res = min(res, hardest + dp(j + 1, cur_day + 1, memo))
+            if (i_day, j_job) not in memo:
+                hardest_job, res = jobDifficulty[j_job], math.inf
+                
+                for idx in range(j_job, N - (d - i_day)):
+                    hardest_job = max(hardest_job, jobDifficulty[idx])
+                    res = min(res, hardest_job + dp(i_day + 1, idx + 1, memo))  # idx + 1 because we already took the current job into consideration
                     
-                    memo[(i, cur_day)] = res
-            
-            return memo[(i, cur_day)]
-        return dp(0, 1, {})
+                    memo[(i_day, j_job)] = res
+                
+            return memo[(i_day, j_job)]
+        return dp(1, 0, {})
