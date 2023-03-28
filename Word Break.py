@@ -3,7 +3,8 @@ https://leetcode.com/problems/word-break/
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         N = len(s)
-        
+        wordDict = set(wordDict)
+
         def dp(start, memo):
             if start == N:
                 return True
