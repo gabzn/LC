@@ -1,21 +1,23 @@
 https://leetcode.com/problems/word-break/
   
 class Solution:
-    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
-        N = len(s)
-        wordDict = set(wordDict)
-
+    def wordBreak(self, s: str, words: List[str]) -> bool:
+        LEN = len(s)
+        words = set(words)
+        
         def dp(start, memo):
-            if start == N:
+            if start == LEN:
                 return True
             
-            if start not in memo:
-                for end in range(start + 1, N + 1):
-                    if s[start: end] in wordDict and dp(end, memo):
-                        memo[start] = True
-                        return memo[start]
-                    
+            if start in memo:
+                return memo[start]
+            
             memo[start] = False
-            return memo[start]
-        
+            
+            for end in range(start + 1, LEN + 1):
+                if s[start: end] in words and dp(end, memo):
+                    memo[start] = True
+                    break
+                    
+            return memo[start]   
         return dp(0, {})
