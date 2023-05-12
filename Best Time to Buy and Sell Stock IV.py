@@ -11,14 +11,14 @@ class Solution:
             
             memo[(day, operations, is_holding)] = 0
             
-            if not is_holding:
-                buy_now = -prices[day] + dp(day + 1, operations, True, memo)
-                buy_later = dp(day + 1, operations, False, memo)
-                memo[(day, operations, is_holding)] = max(buy_now, buy_later)
-            else:
+            if is_holding:
                 sell_now = prices[day] + dp(day + 1, operations - 1, False, memo)
                 sell_later = dp(day + 1, operations, True, memo)
                 memo[(day, operations, is_holding)] = max(sell_now, sell_later)
+            else:
+                buy_now = -prices[day] + dp(day + 1, operations, True, memo)
+                buy_later = dp(day + 1, operations, False, memo)
+                memo[(day, operations, is_holding)] = max(buy_now, buy_later)
             
             return memo[(day, operations, is_holding)]
             
