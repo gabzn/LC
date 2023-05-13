@@ -2,6 +2,22 @@ https://leetcode.com/problems/min-cost-climbing-stairs/
 
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
+        memo = {}
+        
+        # dp(i) returns the min cost to get from i-th to last step
+        def dp(i):
+            if i >= len(cost):
+                return 0
+            if i in memo:
+                return memo[i]
+            
+            memo[i] = cost[i] + min(dp(i + 1), dp(i + 2))
+            return memo[i]
+        
+        return min(dp(0), dp(1))      
+------------------------------------------------------------------------------------------------------------------------------    
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
         return self.climb(cost, len(cost), {})
     
     # climb(i) tells us the min cost to be on i-th step
