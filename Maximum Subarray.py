@@ -27,3 +27,14 @@ class Solution:
             dp[idx] = prev_max
         
         return max(dp)    
+
+------------------------------------------------------------------------------------------------------
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        prev_max = nums[0]
+
+        for idx in range(1, len(nums)):
+            prev_max = max(prev_max + nums[idx], nums[idx])
+            nums[idx] = prev_max
+        
+        return max(nums)    
