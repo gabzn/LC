@@ -16,6 +16,7 @@ class Solution:
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         LEN = len(nums)
+        # dp[i] tells us the max subarray ending at index i
         dp = [0] * LEN
         dp[0] = nums[0]
 
