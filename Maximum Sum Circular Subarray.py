@@ -16,6 +16,4 @@ class Solution:
             cur_min_sum = min(cur_min_sum + num, num)
             min_sum = min(min_sum, cur_min_sum)
         
-        if max_sum <= 0:
-            return max_sum
-        return max(max_sum, total_sum - min_sum)
+        return max_sum if max_sum <= 0 else max(max_sum, total_sum - min_sum)
