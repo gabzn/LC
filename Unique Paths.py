@@ -2,7 +2,8 @@ https://leetcode.com/problems/unique-paths/
 
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
-      
+        
+        # dp(x, y) returns the number of ways to get to [x, y]
         def dp(x, y, memo):
             if x == 0 and y == 0:
                 return 1
@@ -14,7 +15,7 @@ class Solution:
             memo[(x, y)] = dp(x - 1, y, memo) + dp(x, y - 1, memo)
             return memo[(x, y)]
             
-        return dp(m - 1, n - 1, {})  
+        return dp(m - 1, n - 1, {})
 -----------------------------------------------------------------------------------
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
