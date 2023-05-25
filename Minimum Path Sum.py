@@ -20,3 +20,21 @@ class Solution:
                     dp[r][c] = grid_val + dp[r][c-1]        
         
         return dp[-1][-1]
+--------------------------------------------------------------------------------------------------------------------------------------
+class Solution:
+    def minPathSum(self, grid: List[List[int]]) -> int:
+        M, N = len(grid), len(grid[0])
+        
+        # dp(x, y) returns the min sum to get to grid[x][y]
+        def dp(x, y, memo):
+            if x == 0 and y == 0:
+                return grid[x][y]
+            if x < 0 or y < 0:
+                return math.inf
+            if (x, y) in memo:
+                return memo[(x, y)]
+            
+            memo[(x, y)] = grid[x][y] + min(dp(x - 1, y, memo), dp(x, y - 1, memo))
+            return memo[(x, y)]
+            
+        return dp(M - 1, N - 1, {})
