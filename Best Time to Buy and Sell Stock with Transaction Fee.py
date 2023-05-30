@@ -10,6 +10,13 @@ class Solution:
             if (i, holding) in memo:
                 return memo[(i, holding)]
             
+            """
+            There are only two things we can do on a given day, 
+            depending on whether we are holding a stock or not.
+            
+            If we are holding a stock, we can either sell it on day i or sell it later.
+            If we are not holding a stock, we can either buy it on day i or buy a stock later.
+            """
             if holding:
                 sell_now = (prices[i] - fee) + dp(i + 1, False, memo)
                 sell_later = dp(i + 1, True, memo)
@@ -20,5 +27,4 @@ class Solution:
                 memo[(i, holding)] = max(buy_now, buy_later)
             
             return memo[(i, holding)]
-            
         return dp(0, False, {})
