@@ -6,10 +6,11 @@ class Solution:
         dp = [[0 for _ in range(LEN2 + 1)] for _ in range(LEN1 + 1)]
         res = 0
         
+        # dp[x][y] is the max repeating subarray ending at nums[x] & nums[y]
         for x in range(1, LEN1 + 1):
             for y in range(1, LEN2 + 1):
                 if nums1[x - 1] == nums2[y - 1]:
                     dp[x][y] = 1 + dp[x - 1][y - 1]
                     res = max(res, dp[x][y])
-                    
-        return res  
+        
+        return res
