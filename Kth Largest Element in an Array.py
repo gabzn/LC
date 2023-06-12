@@ -1,11 +1,17 @@
 https://leetcode.com/problems/kth-largest-element-in-an-array/
-  
-Given an integer array nums and an integer k, return the kth largest element in the array.
 
-Note that it is the kth largest element in the sorted order, not the kth distinct element. You must solve it in O(n) time complexity.
-
-Use a min-heap to keep track of the data.
-
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        nums = [-num for num in nums]
+        heapq.heapify(nums)
+        
+        res = 0
+        while k:
+            res = -heapq.heappop(nums)
+            k -= 1
+        
+        return res   
+-------------------------------------------------------------------------------
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
         if len(nums) == 1:
