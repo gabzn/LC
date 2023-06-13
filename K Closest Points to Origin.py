@@ -4,8 +4,7 @@ class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:                
         heap = []
         
-        for index, pair in enumerate(points):
-            x, y = pair
+        for index, [x, y] in enumerate(points):
             distance = x * x + y * y      
             
             if len(heap) == k and -heap[0][0] > distance:
