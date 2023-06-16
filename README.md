@@ -97,28 +97,28 @@ Top-down (memoization) uses recursion. When try to solve a DP problem using this
 Bottom-up (Tabulation) uses iteration. More 
 
 ## ``Something to look at later``
-<s>Priority queue & Heap</s>
-
-<s>Backtracking</s>
-
-<s>Union Find</s>
-
-<s>Sliding Window</s>
-
-<s>Binary Search</s>
-
-DP
-
-Matrix
-
 DFS + BFS
 
-Greedy
+Union Find
 
 Segment Tree
 
 Prefix Sum
 
+Matrix
+
+Greedy
+
 Subsequences & Substrings
 
 Monotonic Queue
+
+<s>Priority queue & Heap</s>
+
+<s>Backtracking</s>
+
+<s>Sliding Window</s>
+
+<s>Binary Search</s>
+
+<s>DP</s>
