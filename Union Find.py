@@ -6,17 +6,17 @@ class UnionFind:
     
     # Find returns the root of x
     def find(self, x):
+        if x != self.root[x]:
+            self.root[x] = self.find(self.root[x])
+        return self.root[x]
+    
+    def find(self, x):
         if x == self.root[x]:
             return x
         
         self.root[x] = self.find(self.root[x])
         return self.root[x]
-    
-    def find(self, x):
-        if x != self.root[x]:
-            self.root[x] = self.find(self.root[x])
-        return self.root[x]
-    
+   
     # Union combines x y to the same set 
     def union(self, x, y) -> None:
         root_x, root_y = self.find(x), self.find(y)
@@ -29,5 +29,3 @@ class UnionFind:
             else:
                 self.root[root_y] = root_x
                 self.rank[root_x] += 1
-
-
