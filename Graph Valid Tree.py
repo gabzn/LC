@@ -3,6 +3,31 @@ https://leetcode.com/problems/graph-valid-tree/
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
         def find(x):
+            if x != root[x]:
+                root[x] = find(root[x])
+            return root[x]
+        
+        def union(x, y):
+            root_x, root_y = find(x), find(y)
+            if root_x == root_y:
+                return False
+            
+            root[root_y] = root_x
+            return True
+        
+        if len(edges) != n - 1:
+            return False
+        
+        root = [i for i in range(n)]
+        for [x, y] in edges:
+            if not union(x, y):
+                return False
+                     
+        return True 
+-----------------------------------------------------------------------------------
+class Solution:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        def find(x):
             if x == root[x]:
                 return x
             
