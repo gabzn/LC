@@ -1,3 +1,27 @@
+https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/
+
+class Solution:
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        def find(x):
+            if x != root[x]:
+                root[x] = find(root[x])
+            return root[x]
+        
+        def union(x, y):
+            root_x, root_y = find(x), find(y)
+            if root_x == root_y:
+                return
+            
+            components[0] -= 1
+            root[root_y] = root_x
+        
+        root = [i for i in range(n)]
+        components = [n]
+        for x, y in edges:
+            union(x, y)
+            
+        return components[0]
+----------------------------------------------------------------------------------------------------------
 class Solution:
     def countComponents(self, n: int, edges: List[List[int]]) -> int:
         
