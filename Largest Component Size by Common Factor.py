@@ -1,5 +1,6 @@
 https://leetcode.com/problems/largest-component-size-by-common-factor/
-  
+https://www.youtube.com/watch?v=VEftbPc0Mlg
+
 class Solution:
     def largestComponentSize(self, nums: List[int]) -> int:
         def find(x):
