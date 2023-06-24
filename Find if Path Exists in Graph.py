@@ -31,34 +31,30 @@ class Solution:
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
-        if n == 1:
-            return True
+        def make_graph():
+            graph = collections.defaultdict(list)
+            for u, v in edges:
+                graph[u].append(v)
+                graph[v].append(u)
+            return graph
         
-        graph = self.build_graph(edges)
-        if source not in graph:
-            return False
-        
-        visited = set()
+        graph = make_graph()
+        visited_nodes = set()
         stack = [source]
+        
         while stack:
-            vertex = stack.pop()
-            if vertex == destination:
+            node = stack.pop()
+            if node == destination:
                 return True
             
-            visited.add(vertex)
+            if node in visited_nodes:
+                continue
+            visited_nodes.add(node)
             
-            for v in graph[vertex]:
-                if v not in visited:
-                    stack.append(v)
-        
+            for neighbour in graph[node]:
+                stack.append(neighbour)
+            
         return False
-    
-    def build_graph(self, edges):
-        graph = collections.defaultdict(list)
-        for v1, v2 in edges:
-            graph[v1].append(v2)
-            graph[v2].append(v1)
-        return graph  
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
