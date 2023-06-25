@@ -1,7 +1,26 @@
 https://leetcode.com/problems/all-paths-from-source-to-target/
-  
-from collections import deque
 
+class Solution:
+    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+        n = len(graph)
+        stack, res = [[0]], []
+        
+        while stack:
+            current_path = stack.pop()
+            
+            last_node = current_path[-1]
+            if last_node == n - 1:
+                res.append(current_path)
+                continue
+                   
+            for neighbour in graph[last_node]:
+                current_path.append(neighbour)
+                stack.append(current_path.copy())
+                current_path.pop()
+    
+        return res
+---------------------------------------------------------------------------------------------
+from collections import deque
 class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
         target = len(graph) - 1
