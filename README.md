@@ -39,6 +39,22 @@ https://leetcode.com/problems/the-number-of-weak-characters-in-the-game/
 ## ``DFS & BFS``
 DFS uses a stack
 
+For graphs, there are preorder and postorder traversals. 
+
+```
+
+Preorder DFS Traversal:
+
+    1: Visit current node
+    2: Visit neighbour nodes
+
+Postorder DFS Traversal:
+
+    1: Visit neighbour nodes
+    2: Visit current node 
+
+```
+
 BFS uses a queue
 
 ## ``Heap``
