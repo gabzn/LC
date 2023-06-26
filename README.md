@@ -39,7 +39,7 @@ https://leetcode.com/problems/the-number-of-weak-characters-in-the-game/
 ## ``DFS & BFS``
 DFS uses a stack
 
-For graphs, there are preorder and postorder traversals. 
+For graphs, there are preorder, postorder and topological traversals. 
 
 ```
 
@@ -51,7 +51,9 @@ Preorder DFS Traversal:
 Postorder DFS Traversal:
 
     1: Visit neighbour nodes
-    2: Visit current node 
+    2: Visit current node
+
+Topological Traversal is just the reverse of Postorder Traversal.
 
 ```
 
