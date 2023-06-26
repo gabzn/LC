@@ -81,6 +81,18 @@ Priority queues are abstract data structures meaning it can be implemented by mu
 
 2: It could also be implemented using a heap. A heap will adjust the priority automatically using bubble up/down after each insertion.
 
+```
+
+A few things to learn from this one: https://leetcode.com/problems/total-cost-to-hire-k-workers/
+
+    1: How to initialize lists with [:index] and [index:] syntax
+
+    2: How to initialize variables if there's possibility of out of bound
+
+    3: How to deal with double counting when dealing with pointers
+    
+```
+
 ## ``Sliding Window``
 Always a good idea to think of sliding window when the problem has keywords like <b>consecutive</b>, <b>contiguous</b>, <b>subarray</b> and <b>substring</b>, and the input is a string or array.
 
