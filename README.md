@@ -42,7 +42,6 @@ DFS uses a stack
 For graphs, there are preorder, postorder and topological traversals. 
 
 ```
-
 Preorder DFS Traversal:
 
     1: Visit current node
@@ -56,7 +55,6 @@ Postorder DFS Traversal:
 Topological Traversal is just the reverse of Postorder Traversal.
 
     https://leetcode.com/problems/reconstruct-itinerary/
-
 ```
 
 BFS uses a queue
@@ -82,15 +80,13 @@ Priority queues are abstract data structures meaning it can be implemented by mu
 2: It could also be implemented using a heap. A heap will adjust the priority automatically using bubble up/down after each insertion.
 
 ```
-
 A few things to learn from this one: https://leetcode.com/problems/total-cost-to-hire-k-workers/
 
     1: How to initialize lists with [:index] and [index:] syntax
 
     2: How to initialize variables if there's possibility of out of bound
 
-    3: How to deal with double counting when dealing with pointers
-    
+    3: How to deal with double counting when dealing with pointers  
 ```
 
 ## ``Sliding Window``
@@ -112,7 +108,6 @@ https://www.youtube.com/watch?v=JuDAqNyTG4g&t=483s
 https://www.youtube.com/watch?v=tgVSkMA8joQ
 
 A template for binary search for lower bound or upper bound:
-
 ```python
 
 l, r = -1, len(nums)
