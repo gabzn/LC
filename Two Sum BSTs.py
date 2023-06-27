@@ -2,13 +2,13 @@ https://leetcode.com/problems/two-sum-bsts/
 
 class Solution:
     def twoSumBSTs(self, root1: Optional[TreeNode], root2: Optional[TreeNode], target: int) -> bool:
-        """
+        """"
         Convert both trees into lists and do 2-sum on them.
         Find the differences from the first list.
         If any of the differences exists in the second list, return True
         Runtime: O(N + M)
         Space: O(N + M)
-        """
+        """"
         list1, list2 = [], []
         self.inorder(root1, list1)
         self.inorder(root2, list2)
