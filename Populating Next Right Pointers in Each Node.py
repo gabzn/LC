@@ -4,8 +4,8 @@ class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
         if not root:
             return root
+            
         queue = deque([root])
-        
         while queue:
             # Use a queue to store the next-level nodes
             children = deque()
@@ -21,8 +21,7 @@ class Solution:
                     children.append(node.right)
             
             # Put next-level nodes back to the queue
-            while children:
-                queue.append(children.popleft())
+            queue.extend(children)
             
         return root
 ------------------------------------------------------------------------------------------------
