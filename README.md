@@ -87,6 +87,8 @@ A few things to learn from this one: https://leetcode.com/problems/total-cost-to
     2: How to initialize variables if there's possibility of out of bound
 
     3: How to deal with double counting when dealing with pointers  
+
+A very interesting use of heap: https://leetcode.com/problems/find-k-pairs-with-smallest-sums/
 ```
 
 ## ``Sliding Window``
