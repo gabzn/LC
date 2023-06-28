@@ -8,6 +8,33 @@ class Solution:
         def is_valid_cell(x, y):
             return (0 <= x < N) and (0 <= y < N) and (grid[x][y] == 0)
         
+        N = len(grid)
+        queue = deque([(0, 0, 1)])
+        directions = [(0,1), (0,-1), (1,0), (-1,0), (1,1), (-1,-1), (1,-1), (-1,1)]
+        
+        while queue:
+            x, y, current_length = queue.popleft()
+            if x == y == N - 1:
+                return current_length
+                        
+            for offset_x, offset_y in directions:
+                neighbour_x, neighbour_y = x + offset_x, y + offset_y
+                if is_valid_cell(neighbour_x, neighbour_y):
+                    queue.append((neighbour_x, neighbour_y, current_length + 1))
+                    
+                    # After we add it to the queue, we mark it as 1 to avoid revisiting
+                    grid[neighbour_x][neighbour_y] = 1
+                            
+        return -1
+------------------------------------------------------------------------------------------
+class Solution:
+    def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
+        if grid[0][0] == 1 or grid[-1][-1] == 1:
+            return -1
+        
+        def is_valid_cell(x, y):
+            return (0 <= x < N) and (0 <= y < N) and (grid[x][y] == 0)
+        
         N, length = len(grid), math.inf
         visited_cells = set()
         queue = deque()
