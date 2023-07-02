@@ -1,11 +1,37 @@
 https://leetcode.com/problems/network-delay-time/
 
 class Solution:
+    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+        graph = self.make_graph(times)
+        
+        # signal_received_at_time[x] stores what time node x receives any signal
+        # Initially set to math.inf to indicate that no signal was received
+        signal_received_at_time = [math.inf for _ in range(n + 1)]
+        signal_received_at_time[k] = 0
+        
+        queue = [(k, 0)]
+        while queue:
+            node, cur_time = heappop(queue)
+            
+            # Add neighbour_node to queue only if traversing this path takes
+            # less time than the value at signal_received_at_time[neighbour_node]
+            for neighbour_node, time in graph[node]:
+                new_time = cur_time + time
+                
+                if new_time < signal_received_at_time[neighbour_node]:
+                    signal_received_at_time[neighbour_node] = new_time
+                    heappush(queue, (neighbour_node, new_time))
+        
+        max_time = max(signal_received_at_time[1:])
+        return max_time if max_time != math.inf else -1
+        
     def make_graph(self, times):
         graph = defaultdict(list)
         for source, target, time in times:
             graph[source].append((target, time))
-        return graph            
+        return graph
+-----------------------------------------------------------------------------------
+class Solution:
         
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
         # Sort the times based on the time to send signal
@@ -33,3 +59,9 @@ class Solution:
         dfs(k, 0)
         max_time = max(signal_received_at_time)
         return max_time if max_time != math.inf else -1     
+    
+    def make_graph(self, times):
+        graph = defaultdict(list)
+        for source, target, time in times:
+            graph[source].append((target, time))
+        return graph      
