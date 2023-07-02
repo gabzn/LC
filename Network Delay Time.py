@@ -23,7 +23,7 @@ class Solution:
             if cur_time >= signal_received_at_time[node]:
                 return
             
-            # Set signalReceivedAt[node] equal to cur_time which is the new shortest time required to reach node
+            # Set signal_received_at_time[node] equal to cur_time which is the new shortest time required to reach node
             signal_received_at_time[node] = cur_time
             
             # Perform DFS on the adjacent nodes using the updated timestamp.
