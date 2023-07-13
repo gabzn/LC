@@ -43,12 +43,10 @@ For graphs, there are preorder DFS, postorder DFS and topological traversals.
 
 ```
 Preorder DFS Traversal:
-
     1: Visit current node
     2: Visit neighbour nodes
 
 Postorder DFS Traversal:
-
     1: Visit neighbour nodes
     2: Visit current node
 
@@ -58,7 +56,7 @@ In the recursive dfs version, this is basically adding myself after the for loop
     https://leetcode.com/problems/reconstruct-itinerary/
     https://www.youtube.com/watch?v=ddTC4Zovtbc
 
-Kahn's algo for topo sort:   (https://www.youtube.com/watch?v=h3_D5MomlVs)
+Kahn's algo for topo sort: 
     Step 1: Calculate the in-degree of all nodes
     Step 2: Put nodes with in-degree of 0 into a queue
     Step 3: When going through the neighbours of those in-degree-0 nodes, decrement their in-degree by 1
@@ -66,6 +64,9 @@ Kahn's algo for topo sort:   (https://www.youtube.com/watch?v=h3_D5MomlVs)
     Step 4: Generally, when the queue is empty, we obtain a topo ordering. However, if a graph has cycle, we will not have a topo ordering.
             We also need to check if all nodes have in-degree of 0 to detect if there's a cycle.
             Alternatively, we can check how many nodes we have visited. If the number doesn't match the number of all nodes, there's a cycle.
+
+    https://www.youtube.com/watch?v=h3_D5MomlVs
+    https://leetcode.com/problems/find-eventual-safe-states/
 
 The difference between regular topo sort and Kahn's topo sort is that Kahn's topo sort must start with node with in-degree or 0.
 Unlike the regular one which can stat with any node.
@@ -79,7 +80,6 @@ A heap is a tree based data structure that satisfies the heap property.
 2 types of heaps:
 
     Max Heap
-    
     Min Heap
 
 Although it's very common to see heap being binary, it's not always the case.
@@ -95,7 +95,6 @@ Priority queues are abstract data structures meaning it can be implemented by mu
 
 ```
 A few things to learn from this one: https://leetcode.com/problems/total-cost-to-hire-k-workers/
-
     1: How to initialize lists with [:index] and [index:] syntax
 
     2: How to initialize variables if there's possibility of out of bound
