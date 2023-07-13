@@ -52,7 +52,8 @@ Postorder DFS Traversal:
     1: Visit neighbour nodes
     2: Visit current node
 
-Topological Traversal is just the reverse of Postorder Traversal. Postorder means visit all the children first then myself. In the recursive dfs version, this is basically adding myself after the for loop.
+Topological Traversal is just the reverse of Postorder Traversal. Postorder means visit all the children first then myself.
+In the recursive dfs version, this is basically adding myself after the for loop.
 
     https://leetcode.com/problems/reconstruct-itinerary/
     https://www.youtube.com/watch?v=ddTC4Zovtbc
@@ -62,8 +63,8 @@ Kahn's algo for topo sort:   (https://www.youtube.com/watch?v=h3_D5MomlVs)
     Step 2: Put nodes with in-degree of 0 into a queue
     Step 3: When going through the neighbours of those in-degree-0 nodes, decrement their in-degree by 1
         Step 3.1: If a neighbour's in-degree becomes 0, append it to queue.
-    Step 4: Generally, when the queue is empty, we obtain a topo ordering. However, if a graph has cycle, we will not have a topo ordering. \
-We also need to check if all nodes have in-degree of 0 to detect if there's a cycle.
+    Step 4: Generally, when the queue is empty, we obtain a topo ordering. However, if a graph has cycle, we will not have a topo ordering.
+            We also need to check if all nodes have in-degree of 0 to detect if there's a cycle.
 
 The difference between regular topo sort and Kahn's topo sort is that Kahn's topo sort must start with node with in-degree or 0.
 Unlike the regular one which can stat with any node.
