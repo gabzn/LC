@@ -65,6 +65,7 @@ Kahn's algo for topo sort:   (https://www.youtube.com/watch?v=h3_D5MomlVs)
         Step 3.1: If a neighbour's in-degree becomes 0, append it to queue.
     Step 4: Generally, when the queue is empty, we obtain a topo ordering. However, if a graph has cycle, we will not have a topo ordering.
             We also need to check if all nodes have in-degree of 0 to detect if there's a cycle.
+            Alternatively, we can check how many nodes we have visited. If the number doesn't match the number of all nodes, there's a cycle.
 
 The difference between regular topo sort and Kahn's topo sort is that Kahn's topo sort must start with node with in-degree or 0.
 Unlike the regular one which can stat with any node.
