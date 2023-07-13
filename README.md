@@ -57,11 +57,14 @@ Topological Traversal is just the reverse of Postorder Traversal. Postorder mean
     https://leetcode.com/problems/reconstruct-itinerary/
     https://www.youtube.com/watch?v=ddTC4Zovtbc
 
-Kahn's algo for topo sort: 
+Kahn's algo for topo sort:   (https://www.youtube.com/watch?v=h3_D5MomlVs)
     Step 1: Calculate the in-degree of all nodes
     Step 2: Put nodes with in-degree of 0 into a queue
-    Step 3: When going through the <b>neighbours<\b> of those in-degree-0 nodes, decrement their in-degree by 1
+    Step 3: When going through the <b>neighbours<b> of those in-degree-0 nodes, decrement their in-degree by 1
         Step 3.1: If a neighbour's in-degree becomes 0, append it to queue.
+
+
+
 ```
 
 BFS uses a queue
