@@ -39,7 +39,7 @@ https://leetcode.com/problems/the-number-of-weak-characters-in-the-game/
 ## ``DFS & BFS``
 DFS uses a stack
 
-For graphs, there are preorder, postorder and topological traversals. 
+For graphs, there are preorder DFS, postorder DFS and topological traversals. 
 
 ```
 Preorder DFS Traversal:
@@ -52,9 +52,10 @@ Postorder DFS Traversal:
     1: Visit neighbour nodes
     2: Visit current node
 
-Topological Traversal is just the reverse of Postorder Traversal.
+Topological Traversal is just the reverse of Postorder Traversal. Postorder means visit all the children first then myself. In the recursive dfs version, this is basically adding myself after the for loop.
 
     https://leetcode.com/problems/reconstruct-itinerary/
+    https://www.youtube.com/watch?v=ddTC4Zovtbc
 ```
 
 BFS uses a queue
