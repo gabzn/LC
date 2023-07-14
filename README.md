@@ -111,6 +111,7 @@ Kruskal's algo uses <b>Union-Find</b> to find whether two nodes are already conn
     3: Repeat step 2 until (NUMBER OF NODES - 1) edges are added.
 
     https://leetcode.com/problems/min-cost-to-connect-all-points/
+    https://leetcode.com/problems/optimize-water-distribution-in-a-village/
 ```
 
 ## ``Heap / Priority Queue``
