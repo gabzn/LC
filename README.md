@@ -59,7 +59,7 @@ In the recursive dfs version, this is basically adding myself after the for loop
 Kahn's algo for topo sort: 
     Step 1: Calculate the in-degree of all nodes
     Step 2: Put nodes with in-degree of 0 into a queue
-    Step 3: When going through the neighbours of those in-degree-0 nodes, decrement their in-degree by 1
+    Step 3: Perform BFS. When going through the neighbours of those in-degree-0 nodes, decrement their in-degree by 1
         Step 3.1: If a neighbour's in-degree becomes 0, append it to queue.
     Step 4: Generally, when the queue is empty, we obtain a topo ordering. However, if a graph has cycle, we will not have a topo ordering.
             We also need to check if all nodes have in-degree of 0 to detect if there's a cycle.
@@ -68,6 +68,7 @@ Kahn's algo for topo sort:
     https://www.youtube.com/watch?v=h3_D5MomlVs
     https://leetcode.com/problems/find-eventual-safe-states/
     https://leetcode.com/problems/course-schedule/
+    https://leetcode.com/problems/course-schedule-ii/
 
 The difference between regular topo sort and Kahn's topo sort is that Kahn's topo sort must start with node with in-degree or 0.
 Unlike the regular one which can stat with any node.
