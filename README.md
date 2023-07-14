@@ -72,6 +72,38 @@ The difference between regular topo sort and Kahn's topo sort is that Kahn's top
 Unlike the regular one which can stat with any node.
 ```
 
+## ``Union Find & Minimum Spanning Tree``
+Union find or disjoing set is a data structure to group data in sets. The most common way to implement union find is as below:
+```
+    def union(x, y):
+        root_x, root_y = map(find, [x, y])
+        if root_x == root_y:
+            return
+        root[root_y] = root_x
+
+    def union_by_rank(x, y):
+        root_x, root_y = map(find, [x, y])
+        if root_x == root_y:
+            return
+        if rank[root_x] < rank[root_y]:
+            root[root_x] = root_y
+        elif rank[root_x] > rank[root_y]:
+            root[root_y] = root_x
+        else:
+            root[root_y] = root_x
+            rank[root_x] += 1
+
+    def find(x):
+        if root[x] != x:
+            root[x] = find(root[x])
+        return root[x]
+
+    root = [index for index in range(NUMBER OF NODES)]
+    rank = [1 for _ in range(NUMBER OF NODES)]
+```
+A Minimum Spanning Tree (MST) is a subset of a <b>weighted undirected graph</b> which connects all nodes with the minimal total edge cost. 
+
+
 ## ``Heap / Priority Queue``
 A heap is a tree based data structure that satisfies the heap property. Trees cannot contain cycles. Therefore, heaps cannot contain cycles too.
 
