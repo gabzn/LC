@@ -101,8 +101,18 @@ Union find or disjoing set is a data structure to group data in sets. The most c
     root = [index for index in range(NUMBER OF NODES)]
     rank = [1 for _ in range(NUMBER OF NODES)]
 ```
-A Minimum Spanning Tree (MST) is a subset of a <b>`weighted undirected graph`</b> which connects all nodes with the minimal total edge cost. 
+A Minimum Spanning Tree (MST) is a subset of a <b>`weighted undirected graph`</b> which connects all <b>`nodes`</b> with the minimal total edge cost.
 
+There are two well-known algorithms to construct a MST:
+    1. Kruskal's algorithm
+    2. Prim's algorithm
+
+Kruskal's algo uses <b>Union-Find</b> to find whether two nodes are already connected or not. The general implementation of Kruskal's algo:
+```
+    1: Sort the edges by their weights in ascending order
+    2: Add edges in that order into the MST. Skip the edges that would produce cycles in the MST by using Union-Find
+    3: Repeat step 2 until (NUMBER OF NODES - 1) edges are added
+```
 
 ## ``Heap / Priority Queue``
 A heap is a tree based data structure that satisfies the heap property. Trees cannot contain cycles. Therefore, heaps cannot contain cycles too.
