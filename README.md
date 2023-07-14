@@ -101,7 +101,7 @@ Union find or disjoing set is a data structure to group data in sets. The most c
     root = [index for index in range(NUMBER OF NODES)]
     rank = [1 for _ in range(NUMBER OF NODES)]
 ```
-A Minimum Spanning Tree (MST) is a subset of a <b>weighted undirected graph</b> which connects all nodes with the minimal total edge cost. 
+A Minimum Spanning Tree (MST) is a subset of a `<b>weighted undirected graph</b>` which connects all nodes with the minimal total edge cost. 
 
 
 ## ``Heap / Priority Queue``
