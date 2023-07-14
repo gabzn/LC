@@ -17,10 +17,9 @@ class Solution:
         root = [index for index in range(n + 1)]
         min_cost = 0
         
-        for index in range(n):
-            house = index + 1
-            cost_to_build_well_at_house = wells[index]
-            pipes.append([house, 0, cost_to_build_well_at_house])
+        for index, cost_to_build_well_at_house in enumerate(wells):
+            house_index = index + 1
+            pipes.append([house_index, 0, cost_to_build_well_at_house])
         
         pipes.sort(key=lambda pipe: pipe[2])
         for house1, house2, cost in pipes:
