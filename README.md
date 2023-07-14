@@ -109,12 +109,12 @@ There are two well-known algorithms to construct a MST:
 
 Kruskal's algo uses <b>Union-Find</b> to find whether two nodes are already connected or not. The general implementation of Kruskal's algo:
 ```
-    1: Sort the edges by their weights in ascending order
+    1: Sort the edges by their weights in ascending order.
     2: Go through the sorted edges and merge nodes into the MST if no cycles would be produced by using the Union function in Union-Find.
-        2.1: Typically, the Union function would return True/False to indicate if two nodes are already connected
+        2.1: Typically, the Union function would return True/False to indicate if two nodes are already connected.
         2.2: If False, that means adding the current edge would produce a cycle. Skip the current edge.
         2.3: If True, adding the current edge would not create a cycle. Use the current edge.
-    3: Repeat step 2 until (NUMBER OF NODES - 1) edges are added
+    3: Repeat step 2 until (NUMBER OF NODES - 1) edges are added.
 ```
 
 ## ``Heap / Priority Queue``
