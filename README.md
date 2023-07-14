@@ -109,6 +109,8 @@ Kruskal's algo uses <b>Union-Find</b> to find whether two nodes are already conn
         2.2: If False, that means adding the current edge would produce a cycle. Skip the current edge.
         2.3: If True, adding the current edge would not create a cycle. Use the current edge.
     3: Repeat step 2 until (NUMBER OF NODES - 1) edges are added.
+
+    https://leetcode.com/problems/min-cost-to-connect-all-points/
 ```
 
 ## ``Heap / Priority Queue``
