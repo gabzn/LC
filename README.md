@@ -67,6 +67,7 @@ Kahn's algo for topo sort:
 
     https://www.youtube.com/watch?v=h3_D5MomlVs
     https://leetcode.com/problems/find-eventual-safe-states/
+    https://leetcode.com/problems/course-schedule/
 
 The difference between regular topo sort and Kahn's topo sort is that Kahn's topo sort must start with node with in-degree or 0.
 Unlike the regular one which can stat with any node.
