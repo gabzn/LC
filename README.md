@@ -27,7 +27,6 @@ ord('a') - ord('a') = 0
 
 chr(ord('a')) = 'a'
 
-
 ## ``How to check if a char is a digit or a letter``
 char.isnumeric()   -> checks if a char is a digit/number
 
@@ -37,10 +36,9 @@ char.isalpha()    -> checks if a char is a letter
 https://leetcode.com/problems/the-number-of-weak-characters-in-the-game/
 
 ## ``DFS & BFS``
-DFS uses a stack
+DFS uses a stack & BFS uses a queue
 
 For graphs, there are preorder DFS, postorder DFS and topological traversals. 
-
 ```
 Preorder DFS Traversal:
     1: Visit current node
@@ -74,10 +72,8 @@ The difference between regular topo sort and Kahn's topo sort is that Kahn's top
 Unlike the regular one which can stat with any node.
 ```
 
-BFS uses a queue
-
-## ``Heap``
-A heap is a tree based data structure that satisfies the heap property.
+## ``Heap / Priority Queue``
+A heap is a tree based data structure that satisfies the heap property. Trees cannot contain cycles. Therefore, heaps cannot contain cycles too.
 
 2 types of heaps:
 
@@ -86,14 +82,10 @@ A heap is a tree based data structure that satisfies the heap property.
 
 Although it's very common to see heap being binary, it's not always the case.
 
-Trees cannot contain cycles. So, heaps cannot contain cycles too.
+Priority queues are abstract data structures meaning it can be implemented by multiple data structures. The most common way is implemented using a heap.
 
-## ``Priority Queue``
-Priority queues are abstract data structures meaning it can be implemented by multiple data structures.
-
-1: It could be implemented using just a queue. However, for each insertion, a sorting will take place to ensure the priority is correct.
-
-2: It could also be implemented using a heap. A heap will adjust the priority automatically using bubble up/down after each insertion.
+    1: It could be implemented using just a queue. However, for each insertion, a sorting will take place to ensure the priority is correct.
+    2: It could also be implemented using a heap. A heap will adjust the priority automatically using bubble up/down after each insertion.
 
 ```
 A few things to learn from this one: https://leetcode.com/problems/total-cost-to-hire-k-workers/
@@ -136,6 +128,7 @@ while l + 1 != r:
 
 return either l or r
 ```
+
 ## ``DP``
 Top-down (memoization) uses recursion. When try to solve a DP problem using this approach, there's usually a recursive function that does the work. Two things to think about before designing such a recursive function. 1: State variables (what we care about at the current step) and 2: what this recursive function returns. Example: if a question is asking for the max or min of performing some actions. The function can return the max or min when we are performing the i-th action where i is also the state variable.
 
