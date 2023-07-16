@@ -1,4 +1,5 @@
 https://leetcode.com/problems/alien-dictionary/
+https://www.youtube.com/watch?v=tN6YETIiaqw
 
 class Solution:
     def alienOrder(self, words: List[str]) -> str:
