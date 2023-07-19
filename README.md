@@ -189,11 +189,9 @@ Top-down (memoization) uses recursion. When try to solve a DP problem using this
 Bottom-up (Tabulation) uses iteration. More 
 
 ## ``Something to look at later``
-DFS + BFS
-
-Union Find
-
 Segment Tree
+
+Backtracking
 
 Prefix Sum
 
@@ -209,10 +207,12 @@ Top K
 
 <s>Priority queue & Heap</s>
 
-<s>Backtracking</s>
-
 <s>Sliding Window</s>
 
 <s>Binary Search</s>
 
 <s>DP</s>
+
+<s>Union Find</s>
+
+<s>DFS + BFS</s>
