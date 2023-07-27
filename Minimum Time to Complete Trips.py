@@ -16,7 +16,6 @@ class Solution:
                 
         return res
     
-    
     def can_make_all_trips_in_m_minutes(self, time, total_trips, m):
         trips = 0
         
