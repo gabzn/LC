@@ -188,6 +188,11 @@ Top-down (memoization) uses recursion. When try to solve a DP problem using this
 
 Bottom-up (Tabulation) uses iteration. More 
 
+## ``Game Theory (Turn by turn based)``
+https://leetcode.com/problems/predict-the-winner/
+
+https://leetcode.com/problems/stone-game/
+
 ## ``Something to look at later``
 Segment Tree
 
