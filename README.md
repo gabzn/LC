@@ -29,6 +29,11 @@ char.isalpha()    -> checks if a char is a letter
 ## ``How to sort an array by multiple values``
 https://leetcode.com/problems/the-number-of-weak-characters-in-the-game/
 
+## ``How to deal with tricky bounds in indexing``
+https://leetcode.com/problems/total-cost-to-hire-k-workers/
+
+https://leetcode.com/problems/stone-game-ii/
+
 ## ``DFS & BFS``
 DFS uses a stack & BFS uses a queue
 
@@ -209,6 +214,8 @@ Subsequences & Substrings
 Monotonic Queue
 
 Top K
+
+Simulation
 
 <s>Priority queue & Heap</s>
 
