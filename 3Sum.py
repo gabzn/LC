@@ -1,11 +1,28 @@
 https://leetcode.com/problems/3sum/
   
-Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] 
-such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
-
-Notice that the solution set must not contain duplicate triplets.
-AKA: 3 different-indexed numbers add up to 0.
-  
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        LEN = len(nums)
+        res = set()
+        nums.sort()    
+    
+        for index in range(LEN):
+            cur_num = nums[index]
+            
+            l, r = index + 1, LEN - 1
+            while l < r:
+                three_sum = cur_num + nums[l] + nums[r]
+                
+                if three_sum == 0:
+                    res.add((cur_num, nums[l], nums[r]))
+                    l += 1
+                if three_sum < 0:
+                    l += 1
+                if three_sum > 0:
+                    r -= 1
+        
+        return res
+-----------------------------------------------------------------------  
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         if len(nums) < 3:
