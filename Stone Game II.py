@@ -14,7 +14,7 @@ class Solution:
             stones = 0
             
             for x in range(1, 2 * m + 1):
-                if index + x > LEN:
+                if (index + x - 1) >= LEN:
                     break
                 
                 stones += piles[index + x - 1]
