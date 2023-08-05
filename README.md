@@ -21,6 +21,9 @@ ord('a') - ord('a') = 0
 chr(ord('a')) = 'a'
 ```
 
+## ``How to implement custom str comparator``
+https://leetcode.com/problems/largest-number/
+
 ## ``How to check if a char is a digit or a letter``
 char.isnumeric()   -> checks if a char is a digit/number
 
