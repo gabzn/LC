@@ -1,5 +1,40 @@
 https://leetcode.com/problems/number-of-operations-to-make-network-connected/
-  
+
+class Solution:
+    def build_graph(self, connections):
+        graph = defaultdict(list)
+        for a, b in connections:
+            graph[a].append(b)
+            graph[b].append(a)
+        return graph
+      
+    def makeConnected(self, n: int, connections: List[List[int]]) -> int:
+        if len(connections) < n - 1:
+            return -1
+        
+        graph = self.build_graph(connections)
+        visited_nodes = set()
+        connected_computers = 0
+        
+        for node in range(n):
+            if node not in visited_nodes:
+                connected_computers += 1
+
+                stack = [node]
+                while stack:
+                    computer = stack.pop()
+                    
+                    if computer in visited_nodes:
+                        continue
+                    visited_nodes.add(computer)
+                    
+                    if computer not in graph:
+                        break
+                    for neighbour in graph[computer]:
+                        stack.append(neighbour)
+        
+        return connected_computers - 1
+---------------------------------------------------------------------------------------------
 class Solution:
     def makeConnected(self, n: int, connections: List[List[int]]) -> int:
         def find(x):
