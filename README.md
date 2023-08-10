@@ -72,6 +72,11 @@ Kahn's algo for topo sort:
 
 The difference between regular topo sort and Kahn's topo sort is that Kahn's topo sort must start with node with in-degree or 0.
 Unlike the regular one which can stat with any node.
+
+BFS/DFS + Binary Search
+https://leetcode.com/problems/path-with-minimum-effort/
+https://leetcode.com/problems/find-the-safest-path-in-a-grid/
+
 ```
 
 ## ``Union Find & Minimum Spanning Tree``
