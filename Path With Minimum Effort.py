@@ -5,6 +5,37 @@ class Solution:
         def is_valid_cell(x, y):
             return 0 <= x < ROWS and 0 <= y < COLS
         
+        ROWS, COLS = len(heights), len(heights[0])
+        DIRECTIONS = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+        
+        visited_cells = set()
+        difference_matrix = [[math.inf for _ in range(COLS)] for _ in range(ROWS)]
+        difference_matrix[0][0] = 0
+        heap = [(0, 0, 0)]
+        
+        while heap:
+            difference, x, y = heappop(heap)
+            visited_cells.add((x, y))
+            
+            for offset_x, offset_y in DIRECTIONS:
+                adjacent_x, adjacent_y = x + offset_x, y + offset_y
+                
+                if is_valid_cell(adjacent_x, adjacent_y) and (adjacent_x, adjacent_y) not in visited_cells:
+                    current_difference = abs(heights[adjacent_x][adjacent_y] - heights[x][y])
+                    
+                    # If climbing the adjacent cell requires less effort, we climb it
+                    max_difference = max(current_difference, difference_matrix[x][y])
+                    if difference_matrix[adjacent_x][adjacent_y] > max_difference:
+                        difference_matrix[adjacent_x][adjacent_y] = max_difference
+                        heappush(heap, (max_difference, adjacent_x, adjacent_y))
+        
+        return difference_matrix[-1][-1]
+------------------------------------------------------------------------
+class Solution:
+    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+        def is_valid_cell(x, y):
+            return 0 <= x < ROWS and 0 <= y < COLS
+        
         def can_reach_end_with_effort(m):
             queue = deque([(0, 0, heights[0][0])])
             visited_cells = set()
