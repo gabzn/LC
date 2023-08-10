@@ -77,6 +77,10 @@ BFS/DFS + Binary Search
 https://leetcode.com/problems/path-with-minimum-effort/
 https://leetcode.com/problems/find-the-safest-path-in-a-grid/
 
+Multi-source BFS
+https://leetcode.com/problems/find-the-safest-path-in-a-grid/
+https://leetcode.com/problems/walls-and-gates/
+
 ```
 
 ## ``Union Find & Minimum Spanning Tree``
