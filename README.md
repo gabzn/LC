@@ -80,6 +80,7 @@ https://leetcode.com/problems/find-the-safest-path-in-a-grid/
 Multi-source BFS
 https://leetcode.com/problems/find-the-safest-path-in-a-grid/
 https://leetcode.com/problems/walls-and-gates/
+https://leetcode.com/problems/shortest-bridge/
 
 ```
 
