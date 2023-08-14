@@ -1,4 +1,5 @@
 https://leetcode.com/problems/ways-to-split-array-into-three-subarrays/
+https://www.youtube.com/watch?v=tSYfTRau5HE
 
 class Solution:
     def waysToSplit(self, nums: List[int]) -> int:  
