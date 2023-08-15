@@ -2,8 +2,8 @@ https://leetcode.com/problems/the-maze/
 
 class Solution:
     def hasPath(self, maze: List[List[int]], start: List[int], destination: List[int]) -> bool:     
-        def is_valid_cell(x, y):
-            return 0 <= x < ROWS and 0 <= y < COLS
+        def is_empty_space(x, y):
+            return 0 <= x < ROWS and 0 <= y < COLS and maze[x][y] == 0
         
         ROWS, COLS = len(maze), len(maze[0])
         DIRECTIONS = [(0, 1), (1, 0), (-1, 0), (0, -1)]
@@ -22,7 +22,7 @@ class Solution:
                 adjacent_x, adjacent_y = offset_x + x, offset_y + y
                 
                 # The ball keeps rolling in the same direction until it is out of bound or hits a wall
-                while is_valid_cell(adjacent_x, adjacent_y) and maze[adjacent_x][adjacent_y] == 0:
+                while is_empty_space(adjacent_x, adjacent_y):
                     adjacent_x += offset_x
                     adjacent_y += offset_y
                 
