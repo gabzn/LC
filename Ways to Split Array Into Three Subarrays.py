@@ -23,8 +23,8 @@ class Solution:
         prefix[j] - prefix[i] <= prefix[-1] - prefix[j] becomes prefix[j] <= (prefix[-1] + prefix[i]) // 2
         """
         for i in range(1, LEN):
-            left_bound_j = bisect_left(prefix, 2 * prefix[i])
-            right_bound_j = bisect_right(prefix, (prefix[-1] + prefix[i]) // 2)
+            left_bound_j = bisect_left(prefix, 2 * prefix[i])                   # The smallest mid can be
+            right_bound_j = bisect_right(prefix, (prefix[-1] + prefix[i]) // 2) # The biggest mid can be
             
             # Normally, we just need to do right_bound_j - left_bound_j to find the number of ways
             # When i reaches the second to last index in prefix, 
