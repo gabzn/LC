@@ -21,15 +21,19 @@ class Solution:
                 adjacent_x, adjacent_y = x + offset_x, y + offset_y
                 rolling_distance = 1
                 
+                # Keep rolling to the same direction until it hits a wall
                 while is_empty_space(adjacent_x, adjacent_y):
                     adjacent_x += offset_x
                     adjacent_y += offset_y
                     rolling_distance += 1    
                 
+                # After the while loop, the ball is at the wall
+                # Backtrack one step to reposition it to the empty space next to it
                 adjacent_x -= offset_x
                 adjacent_y -= offset_y
                 rolling_distance -= 1
                 
+                # distances[x][y] + rolling_distance is the distance to get from (x, y) to (adjacent_x, adjacent_y)
                 if distances[x][y] + rolling_distance < distances[adjacent_x][adjacent_y]:
                     distances[adjacent_x][adjacent_y] = distances[x][y] + rolling_distance
                     heappush(heap, (rolling_distance + distance, adjacent_x,adjacent_y))     
