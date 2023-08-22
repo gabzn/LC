@@ -16,11 +16,9 @@ class Solution:
                 # (indices[right] - indices[left] + 1) is the how many numbers between right and left
                 # (right - left + 1) is the count of num
                 while right < LEN and (indices[right] - indices[left] + 1) - (right - left + 1) <= k:
+                    res = max(res, right - left + 1)
                     right += 1
-                # Backtrack one step because after the while loop right is out of bound
-                right -= 1
                 
-                res = max(res, right - left + 1)
                 left += 1
                     
-        return res 
+        return res
