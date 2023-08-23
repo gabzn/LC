@@ -1,5 +1,35 @@
 https://leetcode.com/problems/reorganize-string/
-  
+
+class Solution:
+    def reorganizeString(self, s: str) -> str:
+        res = ''
+        
+        counter = Counter(s)
+        heap = [(-count, char) for char, count in counter.items()]
+        heapify(heap)
+        
+        while heap:
+            placeholder = []
+            
+            pop_times = min(2, len(heap))
+            for _ in range(pop_times):
+                count, char = heappop(heap)
+                
+                # Decrement the count and don't append it to the list if we've exhausted this char
+                count += 1
+                if count != 0:
+                    placeholder.append((count, char))
+                
+                # If the last char is the same as the current char, return ''
+                if res and res[-1] == char:
+                    return ''
+                res += char
+            
+            for count, char in placeholder:
+                heappush(heap, (count, char))
+
+        return res
+------------------------------------------------------------
 class Solution:
     def reorganizeString(self, s: str) -> str:
         res = ''
