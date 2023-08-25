@@ -26,4 +26,5 @@ class Solution:
         
         if is_first_one:
             return 0
+        
         return res
