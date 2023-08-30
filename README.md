@@ -86,6 +86,7 @@ https://leetcode.com/problems/rotting-oranges/
 https://leetcode.com/problems/as-far-from-land-as-possible/
 https://leetcode.com/problems/map-of-highest-peak/
 https://leetcode.com/problems/01-matrix/
+https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/
 
 ```
 
