@@ -6,9 +6,7 @@ class Solution:
         dp = [math.inf] * (n + 1)
         dp[0] = 0
         
-        for i in range(n + 1):
-            dist = ranges[i]
-            
+        for i, dist in enumerate(ranges):
             left = max(0, i - dist)
             right = min(n, i + dist)
             
