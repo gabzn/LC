@@ -210,7 +210,13 @@ return either l or r
 ## ``DP``
 Top-down (memoization) uses recursion. When try to solve a DP problem using this approach, there's usually a recursive function that does the work. Two things to think about before designing such a recursive function. 1: State variables (what we care about at the current step) and 2: what this recursive function returns. Example: if a question is asking for the max or min of performing some actions. The function can return the max or min when we are performing the i-th action where i is also the state variable.
 
-Bottom-up (Tabulation) uses iteration. More 
+Interval dp problems:
+
+https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/
+
+https://leetcode.com/problems/maximize-the-profit-as-the-salesman/
+
+https://leetcode.com/problems/maximum-earnings-from-taxi/
 
 ## ``Game Theory (Turn by turn based)``
 https://leetcode.com/problems/predict-the-winner/
