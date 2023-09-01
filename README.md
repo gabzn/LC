@@ -218,6 +218,8 @@ https://leetcode.com/problems/maximize-the-profit-as-the-salesman/
 
 https://leetcode.com/problems/maximum-earnings-from-taxi/
 
+https://leetcode.com/problems/maximum-profit-in-job-scheduling/
+
 ## ``Game Theory (Turn by turn based)``
 https://leetcode.com/problems/predict-the-winner/
 
