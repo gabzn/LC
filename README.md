@@ -212,6 +212,8 @@ Top-down (memoization) uses recursion. When try to solve a DP problem using this
 
 Interval dp problems:
 
+https://leetcode.com/problems/video-stitching/
+
 https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/
 
 https://leetcode.com/problems/maximize-the-profit-as-the-salesman/
