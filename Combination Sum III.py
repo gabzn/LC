@@ -2,17 +2,17 @@ https://leetcode.com/problems/combination-sum-iii/
   
 class Solution:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:
-        return self.backtrack(k, n, 1, [], [])
-    
-    def backtrack(self, k, n, start, current, res):
-        if len(current) == k:
-            if n == 0:
-                res.append(current.copy())
+        return self.find_combinations(k, n, 1, [], [])
+        
+    def find_combinations(self, k, target, start, cur, res):      
+        if len(cur) == k:
+            if target == 0:
+                res.append(cur[:])
             return res
         
-        for i in range(start, 10):   
-            current.append(i)
-            res = self.backtrack(k, n - i, i + 1, current, res)
-            current.pop()
-            
+        for num in range(start, 10):
+            cur.append(num)
+            res = self.find_combinations(k, target - num, num + 1, cur, res)
+            cur.pop()    
+        
         return res
