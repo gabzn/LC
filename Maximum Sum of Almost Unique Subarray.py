@@ -1,6 +1,34 @@
 https://leetcode.com/problems/maximum-sum-of-almost-unique-subarray/
 
 class Solution:
+    def maxSum(self, nums: List[int], m: int, k: int) -> int:               
+        # Keep track of the freq of each char within a window size
+        freqs = defaultdict(int)
+        running_sum, ans = 0, 0
+        left, right = 0, 0
+        
+        while right < len(nums):
+            freqs[nums[right]] += 1
+            running_sum += nums[right]
+            
+            # If the window size is more than k, move left 1 unit to its right
+            if right - left + 1 > k:
+                freqs[nums[left]] -= 1
+                running_sum -= nums[left]
+                
+                if freqs[nums[left]] == 0:
+                    del freqs[nums[left]]    
+                left += 1
+            
+            # If the window size is k and there's at least m distinct chars
+            if right - left + 1 == k and len(freqs) >= m:
+                ans = max(running_sum, ans)
+            
+            right += 1
+                
+        return ans
+------------------------------------------------------------------------------
+class Solution:
     def maxSum(self, nums: List[int], m: int, k: int) -> int:        
         LEN = len(nums)
         
@@ -20,21 +48,3 @@ class Solution:
                 ans = max(subarray_sum, ans)
                 
         return ans
-----------------------------------------------------------------------
-class Solution:
-    def maxSum(self, nums: List[int], m: int, k: int) -> int:
-        pref = [0]
-        for num in nums:
-            pref.append(pref[-1] + num)
-        
-        res = 0
-        r = k
-        while r < len(pref):
-            l = r - k + 1
-            
-            if len(set(nums[l-1: r])) >= m:
-                res = max(res, pref[r] - pref[l-1])
-            
-            r += 1
-        
-        return res
