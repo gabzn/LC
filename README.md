@@ -227,6 +227,10 @@ https://leetcode.com/problems/predict-the-winner/
 
 https://leetcode.com/problems/stone-game/
 
+## ``Subsequence or substring questions that needs to MOD 10**9 + 7``
+https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/
+
+
 ## ``Something to look at later``
 Segment Tree
 
