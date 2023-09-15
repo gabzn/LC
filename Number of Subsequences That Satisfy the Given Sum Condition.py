@@ -13,8 +13,7 @@ class Solution:
                 r -= 1
             if r < l:
                 break
-            
-            res += pow(2, r - l) % MOD
+            res += pow(2, r - l, MOD)
                   
         return res % MOD
 -----------------------------------------------------------------------------
@@ -41,7 +40,6 @@ class Solution:
             r = find_right_bound(nums[l], l-1, LEN)
             if r < l:
                 break
-                
-            res += pow(2, r - l) % MOD
+            res += pow(2, r - l, MOD)
                   
         return res % MOD
