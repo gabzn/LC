@@ -230,6 +230,9 @@ https://leetcode.com/problems/stone-game/
 ## ``Subsequence or substring questions that needs to MOD 10**9 + 7``
 https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/
 
+## ``A good question to look at to count the number of pairs that needs to meet some condition like i < j``
+https://leetcode.com/problems/number-of-good-pairs/
+
 
 ## ``Something to look at later``
 Segment Tree
