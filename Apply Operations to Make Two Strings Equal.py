@@ -23,7 +23,15 @@ class Solution:
             if char_1 == char_2:
                 res = min(res, dp(idx + 1, False, flip_now_with_no_cost))
                  
-            else:                
+            else:
+                """
+                When the chars are not the same, we have options:
+                    1. We flip the next one with a cost of 1
+                    2. We flip any one in the future with a cost of x
+                        2.1 If in the future I need to flip, I want to know if I previously flipped any or not. If previously I flipped any, that means I can flip the current one for free.
+                        
+                        2.2 If in the future I need to flip and I didn't flip any previously, I can flip the current one with a cost of x and pair it with any one in the future.
+                """
                 res = min(res, 1 + dp(idx + 1, True, flip_now_with_no_cost))
                 
                 if flip_now_with_no_cost:
