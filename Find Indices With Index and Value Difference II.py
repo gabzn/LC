@@ -3,6 +3,14 @@ https://www.youtube.com/watch?v=IKyFGYLa1is
 
 class Solution:
     def findIndices(self, nums: List[int], idx_diff: int, val_diff: int) -> List[int]:
+        """
+        idx:   0   1   2   3   4   5   6   7   8   9
+        nums:  5   1   4   1   2   6   8   7   1   3 
+        
+        [num, idx]
+        pref_min: (1,1) (1,1) (1,1) (1,1) (1,1) (1,1) (1,1) (1,1) (1,1)
+        pref_max: (5,0) (5,0) (5,0) (5,0) (5,0) (6,5) (8,6) (8,6) (8,6)
+        """
         LEN = len(nums)
         if LEN == 1:
             if idx_diff == 0 and val_diff == 0:
