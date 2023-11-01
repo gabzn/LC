@@ -235,19 +235,21 @@ https://leetcode.com/problems/number-of-good-pairs/
 
 
 ## ``Something to look at later``
+DP
+
+Monotonic Queue
+
+Monotonic Stack
+
 Segment Tree
 
 Backtracking
 
 Prefix Sum
 
-Matrix
-
 Greedy
 
 Subsequences & Substrings
-
-Monotonic Queue
 
 Top K
 
@@ -258,8 +260,6 @@ Simulation
 <s>Sliding Window</s>
 
 <s>Binary Search</s>
-
-<s>DP</s>
 
 <s>Union Find</s>
 
