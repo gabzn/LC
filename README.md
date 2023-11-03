@@ -241,8 +241,6 @@ Monotonic Queue
 
 Monotonic Stack
 
-Segment Tree
-
 Backtracking
 
 Prefix Sum
@@ -254,6 +252,8 @@ Subsequences & Substrings
 Top K
 
 Simulation
+
+Segment Tree
 
 <s>Priority queue & Heap</s>
 
