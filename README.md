@@ -243,6 +243,10 @@ Monotonic Stack
 
 Backtracking
 
+Permutation
+
+Combination
+
 Prefix Sum
 
 Greedy
