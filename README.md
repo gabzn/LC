@@ -233,6 +233,10 @@ https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-
 ## ``A good question to look at to count the number of pairs that needs to meet some condition like i < j``
 https://leetcode.com/problems/number-of-good-pairs/
 
+## ``Tree DP``
+https://leetcode.com/problems/maximum-score-after-applying-operations-on-a-tree/
+
+https://leetcode.com/problems/maximum-points-after-collecting-coins-from-all-nodes/
 
 ## ``Something to look at later``
 DP
