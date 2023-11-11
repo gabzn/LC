@@ -148,6 +148,7 @@ Dijikstra uses a heap to find the next least-weight unvisited path. Usually, we 
 https://leetcode.com/problems/network-delay-time/
 https://leetcode.com/problems/path-with-maximum-probability/
 https://leetcode.com/problems/minimum-cost-to-reach-city-with-discounts/
+https://leetcode.com/problems/design-graph-with-shortest-path-calculator/
 ```
 
 ## ``Heap / Priority Queue``
