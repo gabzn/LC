@@ -2,12 +2,31 @@ https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/
   
 class Solution:
     def minStartValue(self, nums: List[int]) -> int:
-        min_start_val = nums[0]
+        pref = [nums[0]]
+        for i in range(1, len(nums)):
+            pref.append(pref[-1] + nums[i])
         
-        for ind in range(1, len(nums)):
-            nums[ind] = nums[ind - 1] + nums[ind]
-            min_start_val = min(min_start_val, nums[ind])
+        min_val = min(pref)
+        return 1 if min_val > 0 else abs(min_val) + 1
+----------------------------------------------------------------------------
+class Solution:
+    def minStartValue(self, nums: List[int]) -> int:
+        def no_negative(m):
+            for num in nums:
+                m += num
+                if m <= 0:
+                    return False
+            
+            return True
         
-        if min_start_val > 0:
-            return 1
-        return abs(min_start_val) + 1
+        l, r = 0, 1000000
+        
+        while l + 1 != r:
+            m = (l + r) // 2
+            
+            if no_negative(m):
+                r = m
+            else:
+                l = m
+        
+        return r
