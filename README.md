@@ -239,6 +239,10 @@ https://leetcode.com/problems/maximum-score-after-applying-operations-on-a-tree/
 
 https://leetcode.com/problems/maximum-points-after-collecting-coins-from-all-nodes/
 
+## ``Knapsack / Pick or skip``
+https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target/
+
+
 ## ``Something to look at later``
 DP
 
