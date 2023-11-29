@@ -234,6 +234,9 @@ https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-
 ## ``A good question to look at to count the number of pairs that needs to meet some condition like i < j``
 https://leetcode.com/problems/number-of-good-pairs/
 
+## ``Combinatorics``
+https://leetcode.com/problems/number-of-ways-to-divide-a-long-corridor/
+
 ## ``Tree DP``
 https://leetcode.com/problems/maximum-score-after-applying-operations-on-a-tree/
 
@@ -242,6 +245,7 @@ https://leetcode.com/problems/maximum-points-after-collecting-coins-from-all-nod
 ## ``Knapsack / Pick or skip``
 https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target/
 
+https://leetcode.com/problems/minimum-number-of-coins-for-fruits/
 
 ## ``Something to look at later``
 DP
