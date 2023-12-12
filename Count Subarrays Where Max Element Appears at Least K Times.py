@@ -1,4 +1,5 @@
 https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times/
+https://www.youtube.com/watch?v=hKCLdPg1WPo
 
 class Solution:
     def countSubarrays(self, nums: List[int], k: int) -> int:
@@ -17,19 +18,28 @@ class Solution:
                 
             res += left
         return res
-
-#    NO GOOD SOLUTION
-#         indices_of_max_num = []
-#         for idx, num in enumerate(nums):
-#             if num == MAX_NUM:
-#                 indices_of_max_num.append(idx)
+------------------------------------------------------------------------------
+class Solution:
+    def countSubarrays(self, nums: List[int], k: int) -> int:
+        LEN = len(nums)
+        MAX_NUM = max(nums)
         
-#         if len(indices_of_max_num) < k:
-#             return 0
+        # Get the indices of all the max num
+        indices_of_max_num = []
+        for idx, num in enumerate(nums):
+            if num == MAX_NUM:
+                indices_of_max_num.append(idx)
         
-#         res = 0
-#         for right in range(k-1, len(indices_of_max_num)):
-#             left = (right - k + 1)    
-#             res += (indices_of_max_num[left] + 1)
+        if len(indices_of_max_num) < k:
+            return 0
+        
+        res = max_count = 0
+        for right in range(LEN):
+            if nums[right] == MAX_NUM:
+                max_count += 1
+            
+            if max_count >= k:
+                left = (max_count - k)
+                res += indices_of_max_num[left] + 1
                 
-#         return res
+        return res
