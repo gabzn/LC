@@ -206,6 +206,10 @@ while l + 1 != r:
         r = m
 
 return either l or r
+
+https://leetcode.com/problems/fair-distribution-of-cookies/
+
+https://leetcode.com/problems/divide-chocolate/
 ```
 
 ## ``DP``
