@@ -37,9 +37,9 @@ class Solution:
                     mines += 1
                 else:
                     adjacent_cells.append((adjacent_x, adjacent_y))
-                    # visited_cells.add((adjacent_x, adjacent_y))   no good
             
             # If there's no mines, change current cell to B and push all surrounding cells to queue
+            # Rule #2 says only reveal the surrounding cells when there are no mines in surrounding
             if mines == 0:
                 board[x][y] = 'B'
 
