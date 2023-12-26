@@ -135,17 +135,18 @@ Kruskal's algo uses <b>Union-Find</b> to find whether two nodes are already conn
     https://leetcode.com/problems/optimize-water-distribution-in-a-village/
 ```
 
-## Single-Source Weighted Shortest Path - Dijikstra
-Recall regular BFS can find the shortest path between two nodes <b>`WHEN THERE'S NO WEIGHT`</b> in the graph. When there's positive weight in the graph, we have to use Dijikstra.
+## Single-Source Weighted Shortest Path - Dijkstra
+Recall regular BFS can find the shortest path between two nodes <b>`WHEN THERE'S NO WEIGHT`</b> in the graph. When there's positive weight in the graph, we have to use Dijkstra.
 
 ```
 What does single source mean? Single source means we want to know the distance from one specific node to another specific node.
-Dijikstra uses a heap to find the next least-weight unvisited path. Usually, we maintain another list to compare the weights.
+Dijkstra uses a heap to find the next least-weight unvisited path. Usually, we maintain another list to compare the weights.
 
 https://leetcode.com/problems/network-delay-time/
 https://leetcode.com/problems/path-with-maximum-probability/
 https://leetcode.com/problems/minimum-cost-to-reach-city-with-discounts/
 https://leetcode.com/problems/design-graph-with-shortest-path-calculator/
+https://leetcode.com/problems/minimum-cost-to-convert-string-i/
 ```
 
 ## ``Heap / Priority Queue``
