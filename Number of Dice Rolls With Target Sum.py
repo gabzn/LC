@@ -1,5 +1,22 @@
 https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/
-  
+
+class Solution:
+    def numRollsToTarget(self, n: int, k: int, target: int) -> int:   
+        MOD = 10 ** 9 + 7
+
+        @cache
+        def dp(dice, cur_sum):
+            if dice == 0:
+                return 1 if cur_sum == target else 0
+            
+            res = 0
+            for value in range(1, k + 1):
+                res += dp(dice - 1, cur_sum + value)
+            
+            return res % MOD
+        
+        return dp(n, 0)
+-------------------------------------------------------------------------------------------------------------------------
 class Solution:
     def numRollsToTarget(self, n: int, k: int, target: int) -> int:
         
