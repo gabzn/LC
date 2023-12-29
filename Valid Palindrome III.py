@@ -1,5 +1,28 @@
 https://leetcode.com/problems/valid-palindrome-iii/
 
+
+class Solution:
+    def isValidPalindrome(self, s: str, k: int) -> bool:
+        LEN = len(s)
+        
+        if LEN == k:
+            return True
+        
+        @cache
+        def dp(left, right, deletions):
+            if left >= right:
+                return True
+            
+            if s[left] == s[right] and dp(left + 1, right - 1, deletions):
+                return True
+            
+            if deletions < k:
+                return dp(left + 1, right, deletions + 1) or dp(left, right - 1, deletions + 1)
+            
+            return False
+        
+        return dp(0, LEN - 1, 0)
+---------------------------------------------------------------------------------
 class Solution:
     def isValidPalindrome(self, s: str, k: int) -> bool:
         LEN = len(s)
