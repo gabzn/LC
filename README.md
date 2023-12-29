@@ -147,6 +147,7 @@ https://leetcode.com/problems/path-with-maximum-probability/
 https://leetcode.com/problems/minimum-cost-to-reach-city-with-discounts/
 https://leetcode.com/problems/design-graph-with-shortest-path-calculator/
 https://leetcode.com/problems/minimum-cost-to-convert-string-i/
+https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/
 ```
 
 ## ``Heap / Priority Queue``
@@ -174,6 +175,32 @@ A few things to learn from this one: https://leetcode.com/problems/total-cost-to
 
 A very interesting use of heap: https://leetcode.com/problems/find-k-pairs-with-smallest-sums/
 ```
+
+## All Pairs Shortest Paths - Floyd-Warsall
+Recall Dijkstra is the best algorithm when we want to find the shortest distances from 1 node to all others. What if now we want to find the shortest distances from every single node to every other nodes?
+
+Theoretically, we can run Dijkstra on every single node and let it compute the shortest distances from every single node to every others, but that'll be very expensive.
+
+Alternatively, we can use Floyd-Warsall algorithm, which can compute the shortest distances for every single pair of nodes. 
+
+The general idea of Floyd-Warsall is try to see if using some intermediate nodes will get us the shorter distances from <b>`i`</b> to <b>`j`</b>.
+
+```
+https://www.youtube.com/watch?v=0dTrKG5UK9k
+https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/
+https://leetcode.com/problems/minimum-cost-to-convert-string-i/
+
+Say we have n nodes, and we want to use Floyd-Warsall to compute the APSP.
+        
+    1: distances = [[math.inf if i != j else 0 for j in range(n)] for i in range(n)] where distances[i][j] denotes the shortest distance from i to j.
+    2: Oftentimes, we are given some initial weights. We go through them and initialize `distances`.
+    3: for k in range(n):
+        for i in range(n):
+         for j in range(n):
+            distances[i][j] = min(distances[i][j], distances[i][k] + distances[k][j])
+
+    What these nested for loops are saying is we want to know if going from i to j through k will result in a shorter distance. 
+```    
 
 ## ``Sliding Window``
 Always a good idea to think of sliding window when the problem has keywords like <b>consecutive</b>, <b>contiguous</b>, <b>subarray</b> and <b>substring</b>, and the input is a string or array.
