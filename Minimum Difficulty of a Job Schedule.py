@@ -1,5 +1,27 @@
 https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule/
-  
+
+class Solution:
+    def minDifficulty(self, difficulties: List[int], d: int) -> int:
+        LEN = len(difficulties)
+        if LEN < d:
+            return -1
+        
+        @cache
+        def dp(i, days_left):
+            if days_left == 1:
+                return max(difficulties[i: ])
+            
+            res = math.inf
+            hardest_job = difficulties[i]
+            
+            for idx in range(i, LEN - days_left + 1):
+                hardest_job = max(hardest_job, difficulties[idx])
+                res = min(res, hardest_job + dp(idx + 1, days_left - 1))
+
+            return res
+        
+        return dp(0, d)
+----------------------------------------------------------------
 class Solution:
     def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
         if len(jobDifficulty) < d:
