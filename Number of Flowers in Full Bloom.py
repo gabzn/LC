@@ -1,6 +1,32 @@
 https://leetcode.com/problems/number-of-flowers-in-full-bloom/
-https://www.youtube.com/watch?v=9wy6OA3Yvpg&t=584s
 
+https://www.youtube.com/watch?v=PknqRRieoEI
+class Solution:
+    def fullBloomFlowers(self, flowers: List[List[int]], people: List[int]) -> List[int]:
+        diff_map = defaultdict(int)
+        
+        for start, end in flowers:
+            diff_map[start] += 1
+            diff_map[end + 1] -= 1
+        
+        diff_lst = sorted(diff_map.items())
+                
+        for idx, person in enumerate(people):
+            people[idx] = (person, idx)
+        
+        answers = [None] * len(people)
+        bloomed_flowers = idx = 0
+        
+        for p_arrival_time, person_idx in sorted(people):
+            while idx < len(diff_lst) and diff_lst[idx][0] <= p_arrival_time:
+                bloomed_flowers += diff_lst[idx][1]
+                idx += 1
+            
+            answers[person_idx] = bloomed_flowers
+        
+        return answers
+-------------------------------------------------------------------------    
+https://www.youtube.com/watch?v=9wy6OA3Yvpg&t=584s
 class Solution:
     def fullBloomFlowers(self, flowers: List[List[int]], people: List[int]) -> List[int]:
         """
