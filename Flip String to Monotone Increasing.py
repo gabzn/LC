@@ -30,3 +30,15 @@ class Solution:
             return res
         
         return dp(0, True)
+----------------------------------------------------------------------------------------------------------------
+class Solution:
+    def minFlipsMonoIncr(self, s: str) -> int:        
+        one_count = res = 0
+        
+        for char in s:
+            if char == '1':
+                one_count += 1
+            else:
+                res = min(res + 1, one_count)
+        
+        return res
