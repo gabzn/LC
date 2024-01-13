@@ -17,7 +17,7 @@ class Solution:
             
             stores_needed = find_num_stores_needed_to_distribute_at_most_m(m)
             
-            # When distribute at most m items, we need more stores than we have
+            # If we need more stores than we have when we are distributing at most m products,
             # we increase m to get fewer or equal stores
             if stores_needed > n:
                 l = m
