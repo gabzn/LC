@@ -20,27 +20,27 @@ class Solution:
                         lps[i] = 0
                         i += 1        
         
-        def KMP_search(pat, txt):
-            M = len(pat)
-            N = len(txt)
-            lps = [0] * M
-            j = 0  # index for pat[]
-
+        def KMP_search(text, pattern):
+            N = len(text)
+            M = len(pattern)
+            
             # Preprocess the pattern
-            compute_lps_array(pat, lps)
-
-            i = 0  # index for txt[]
+            lps = [0] * M
+            compute_lps_array(pattern, lps)
+            
+            # indices for text and pattern
+            i = j = 0
             indices = []
 
             while i < N:
-                if pat[j] == txt[i]:
+                if pattern[j] == text[i]:
                     i += 1
                     j += 1
 
                 if j == M:
                     indices.append(i - j)
                     j = lps[j - 1]
-                elif i < N and pat[j] != txt[i]:
+                elif i < N and pattern[j] != text[i]:
                     if j != 0:
                         j = lps[j - 1]
                     else:
@@ -48,24 +48,19 @@ class Solution:
 
             return indices
         
-        a_indices = KMP_search(a, s)
-        b_indices = KMP_search(b, s)
+        a_indices = KMP_search(s, a)
+        b_indices = KMP_search(s, b)
         
         if a == b:
             return a_indices
         
         res = []
-        j = 0
         
-        for a_idx in a_indices:
-            while j < len(b_indices):
-                if abs(a_idx - b_indices[j]) > k:
-                    j += 1
-                else:
-                    res.append(a_idx)
-                    break
-                
-            if j == len(b_indices):
-                j = 0
+        for i in a_indices:
+            left = bisect_left(b_indices, i - k)
+            right = bisect_right(b_indices, i + k)
+            
+            if right - left > 0:
+                res.append(i)
             
         return res
