@@ -17,6 +17,33 @@ class Solution:
                 b_indices.append(i)        
         
         res = []
+        
+        for i in a_indices:
+            left = bisect_left(b_indices, i - k)
+            right = bisect_right(b_indices, i + k)
+            
+            if right - left > 0:
+                res.append(i)
+                
+        return res
+--------------------------------------------------------------------------------------
+class Solution:
+    def beautifulIndices(self, s: str, a: str, b: str, k: int) -> List[int]:
+        LEN_S = len(s)
+        LEN_A = len(a)
+        LEN_B = len(b)
+        
+        a_indices = []
+        for i in range(LEN_S - LEN_A + 1):
+            if s[i: i + LEN_A] == a:
+                a_indices.append(i)
+                
+        b_indices = []
+        for i in range(LEN_S - LEN_B + 1):
+            if s[i: i + LEN_B] == b:
+                b_indices.append(i)        
+        
+        res = []
         j = 0
         
         for a_idx in a_indices:
