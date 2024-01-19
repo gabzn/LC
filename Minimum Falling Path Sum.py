@@ -1,23 +1,31 @@
 https://leetcode.com/problems/minimum-falling-path-sum/
   
 class Solution:
-    def minFallingPathSum(self, matrix: List[List[int]]) -> int:        
-        def dp(r, c, memo):
-            if c == N or c == -1:
-                return math.inf
-            if r == N - 1:
-                return matrix[r][c]
-            if (r, c) in memo:
-                return memo[(r, c)]
-                                                # diagonally left       # directly below     # diagonally right
-            memo[(r, c)] = matrix[r][c] + min(dp(r + 1, c - 1, memo), dp(r + 1, c, memo), dp(r + 1, c + 1, memo))
-            return memo[(r, c)]
-        
-        N, res, memo = len(matrix), math.inf, {}
-        
-        for c in range(N):
-            res = min(res, dp(0, c, memo))
+    def minFallingPathSum(self, matrix: List[List[int]]) -> int:
+        def is_valid(x, y):
+            return 0 <= x < ROWS and 0 <= y < COLS
+
+        @cache
+        def dp(x, y):
+            if x == ROWS - 1:
+                return matrix[x][y]
             
+            best = inf
+            for offset_x, offset_y in DIRECTIONS:
+                next_x, next_y = offset_x + x, offset_y + y
+                if is_valid(next_x, next_y):
+                    best = min(best, dp(next_x, next_y))
+            
+            return matrix[x][y] + best        
+        
+        ROWS, COLS = len(matrix), len(matrix[0])
+        DIRECTIONS = [(1, -1), (1, 0), (1, 1)]
+        
+        res = inf
+        
+        for c in range(COLS):
+            res = min(res, dp(0, c))
+        
         return res
 --------------------------------------------------------------------------------------------------------------------------------
 class Solution:
