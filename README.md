@@ -261,7 +261,11 @@ https://leetcode.com/problems/predict-the-winner/
 
 https://leetcode.com/problems/stone-game/
 
-## ``Next smaller and Previous smaller with mono stack (increasing)``
+## ``Mono stack``
+Next smaller or previous smaller -> Increasing stack
+
+Next larger or previous larger -> Decreasing stack
+
 https://leetcode.com/problems/sum-of-subarray-minimums/
 
 ## ``Subsequence or substring questions that needs to MOD 10**9 + 7``
