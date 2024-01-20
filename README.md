@@ -262,9 +262,9 @@ https://leetcode.com/problems/predict-the-winner/
 https://leetcode.com/problems/stone-game/
 
 ## ``Mono stack``
-Next smaller or previous smaller -> Increasing stack
+Next smaller or previous smaller -> Increasing stack (Becasue when you see an element that is smaller than the top element in the stack, this element is the next smaller of the top element)
 
-Next larger or previous larger -> Decreasing stack
+Next larger or previous larger -> Decreasing stack (Becasue when you see an element that is larger than the top element in the stack, this element is the next larger of the top element)
 
 https://leetcode.com/problems/sum-of-subarray-minimums/
 
