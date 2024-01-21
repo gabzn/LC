@@ -189,6 +189,7 @@ The general idea of Floyd-Warsall is try to see if using some intermediate nodes
 https://www.youtube.com/watch?v=0dTrKG5UK9k
 https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/
 https://leetcode.com/problems/minimum-cost-to-convert-string-i/
+https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-i/
 
 Say we have n nodes, and we want to use Floyd-Warsall to compute the APSP.
         
