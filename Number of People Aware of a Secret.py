@@ -10,7 +10,7 @@ class Solution:
         
         for i in range(1, n + 1):
             # The i-th person can start sharing at (i + delay) day up to but not including (i + forget)
-            for person in range(i + delay, min(i + forget, n + 1)):
-                dp[person] += dp[i]
+            for j in range(i + delay, min(i + forget, n + 1)):
+                dp[j] += dp[i]
         
         return sum(dp[n - forget + 1: ]) % MOD
