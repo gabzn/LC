@@ -1,5 +1,23 @@
 https://leetcode.com/problems/longest-common-subsequence/
-  
+
+class Solution:
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+        @cache
+        def dp(i1, i2):
+            if i1 == LEN1 or i2 == LEN2:
+                return 0
+            
+            res = 0
+            if text1[i1] == text2[i2]:
+                res = 1 + dp(i1 + 1, i2 + 1)
+            else:
+                res = max(dp(i1 + 1, i2), dp(i1, i2 + 1))
+            
+            return res
+            
+        LEN1, LEN2 = len(text1), len(text2)
+        return dp(0, 0)
+--------------------------------------------------------------------------------------------------------------------------------------------  
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
         LEN1, LEN2 = len(text1), len(text2)
