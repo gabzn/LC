@@ -4,7 +4,8 @@ https://www.youtube.com/watch?v=dalyTgkiH0s
 class Solution:
     def peopleAwareOfSecret(self, n: int, delay: int, forget: int) -> int:
         MOD = 10 ** 9 + 7
-        
+
+        # dp[i] is the number of new people that receive the secret 
         dp = [0] * (n + 1)
         dp[1] = 1
         
