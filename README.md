@@ -268,6 +268,7 @@ Next smaller or previous smaller -> Increasing stack (Becasue when you see an el
 Next larger or previous larger -> Decreasing stack (Becasue when you see an element that is larger than the top element in the stack, this element is the next larger of the top element)
 
 https://leetcode.com/problems/sum-of-subarray-minimums/
+https://leetcode.com/problems/sum-of-subarray-ranges/
 
 ## ``Subsequence or substring questions that needs to MOD 10**9 + 7``
 https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/
