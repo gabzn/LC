@@ -2,7 +2,7 @@ https://leetcode.com/problems/minimum-moves-to-spread-stones-over-grid/
 
 class Solution:
     def minimumMoves(self, grid: List[List[int]]) -> int:
-        def dfs(index, moves, res):
+        def dfs(index, moves):
             if index == 9:
                 res[0] = min(moves, res[0])
                 return
@@ -12,7 +12,7 @@ class Solution:
             
             # Skip cells that already have stones in them
             if grid[x][y] != 0:
-                dfs(index + 1, moves, res)
+                dfs(index + 1, moves)
                 return
             
             # The current cell has no stones. We find cells that have extra stones and move one to current
@@ -23,14 +23,16 @@ class Solution:
                         
                     distance = abs(x - i) + abs(y - j)
                     
+                    # Move the extra stone in [i][j] to [x][y]
                     grid[x][y] += 1
                     grid[i][j] -= 1
                     
-                    dfs(index + 1, moves + distance, res)
+                    dfs(index + 1, moves + distance)
                     
+                    # Reset it                    
                     grid[x][y] -= 1
                     grid[i][j] += 1
             
         res = [100]
-        dfs(0, 0, res)
+        dfs(0, 0)
         return res[0]
