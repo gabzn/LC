@@ -4,6 +4,7 @@ class Solution:
     def minCost(self, costs: List[List[int]]) -> int:
         LEN = len(costs)
         
+        # dp[i] tells us the min cost to paint all the houses up to and including i
         dp = [[0, 0, 0] for _ in range(LEN)]
         dp[0][0] = costs[0][0]
         dp[0][1] = costs[0][1]
