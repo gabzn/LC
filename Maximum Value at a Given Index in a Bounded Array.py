@@ -1,4 +1,5 @@
 https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/
+https://www.youtube.com/watch?v=o3H1ccp2ckc
 
 class Solution:
     def maxValue(self, n: int, index: int, max_sum: int) -> int:
