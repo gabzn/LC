@@ -8,11 +8,11 @@ class Solution:
         res = 0
         
         for i in range(N):
-            highest_y = -inf
+            lowest_y = -inf
             
             for j in range(i + 1, N):
-                if points[i][1] >= points[j][1] and points[j][1] > highest_y:
+                if points[i][1] >= points[j][1] and points[j][1] > lowest_y:
                     res += 1
-                    highest_y = points[j][1]
-        
+                    lowest_y = points[j][1]
+                    
         return res
