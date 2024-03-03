@@ -8,7 +8,6 @@ class Solution:
         while len(nums) >= 2:
             x = heappop(nums)
             if x >= k:
-                heappush(nums, x)
                 break
             
             y = heappop(nums)
