@@ -17,10 +17,7 @@ class Solution:
                     res = max(res, pref[i] - pref_dict[diff])
             
             if num not in pref_dict:
-                if i == 0:
-                    pref_dict[num] = 0
-                else:
-                    pref_dict[num] = pref[i - 1]
+                pref_dict[num] = (0 if i == 0 else pref[i - 1])
             else:
                 pref_dict[num] = min(pref_dict[num], pref[i - 1])
                 
