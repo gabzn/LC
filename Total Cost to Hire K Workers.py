@@ -2,6 +2,54 @@ https://leetcode.com/problems/total-cost-to-hire-k-workers/
 
 class Solution:
     def totalCost(self, costs: List[int], k: int, candidates: int) -> int:
+        N = len(costs)
+        
+        left = []
+        i = 0
+        while i < candidates:
+            heappush(left, costs[i])
+            costs[i] = -1
+            i += 1
+            
+        right = []
+        j = N - 1
+        while j > N - candidates - 1:
+            if costs[j] == -1:
+                break
+                
+            heappush(right, costs[j])
+            costs[j] = -1
+            j -= 1
+
+        res = workers = 0      
+        
+        for _ in range(k):
+            if left and right:
+                if left[0] <= right[0]:
+                    res += left[0]
+                    heappop(left)
+                    
+                    if costs[i] != -1:
+                        heappush(left, costs[i])
+                        costs[i] = -1
+                        i += 1
+                else:
+                    res += right[0]
+                    heappop(right)
+                    
+                    if costs[j] != -1:
+                        heappush(right, costs[j])
+                        costs[j] = -1
+                        j -= 1 
+            elif left:
+                res += heappop(left)
+            else:
+                res += heappop(right)   
+                                
+        return res
+---------------------------------------------------------------------------------------------------
+class Solution:
+    def totalCost(self, costs: List[int], k: int, candidates: int) -> int:
         LEN, res = len(costs), 0
         
         left = costs[:candidates]
