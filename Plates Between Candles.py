@@ -4,19 +4,12 @@ class Solution:
     def platesBetweenCandles(self, s: str, queries: List[List[int]]) -> List[int]:        
         N = len(s)
         
-        one_flag = False if s[0] == '*' else True
-        pref = [0]
-        for idx in range(1, len(s)):
-            if one_flag:
-                if s[idx] == '*':
-                    pref.append(pref[-1] + 1)
-                else:
-                    pref.append(pref[-1])
-            else:
-                if s[idx] == '|':
-                    one_flag = True
-                pref.append(0)
-        
+        pref = []
+        running_sum = 0
+        for idx in range(N):
+            running_sum += (s[idx] == '*')
+            pref.append(running_sum)
+                    
         closest_candle_to_the_left_of_i = []
         closest_candle = -1
         for i in range(N):
@@ -43,3 +36,38 @@ class Solution:
                 res.append(pref[right] - pref[left])
         
         return res
+------------------------------------------------------------------------------------------------
+class Solution:
+    def platesBetweenCandles(self, s: str, queries: List[List[int]]) -> List[int]:        
+        def get_plates(left, right):            
+            if s[left] == s[right] == '|':
+                return pref[right] - pref[left]
+            
+            if s[left] == '|':
+                right = bisect_left(candle_indices, right) - 1           
+                if left <= candle_indices[right]:
+                    return pref[candle_indices[right]] - pref[left]
+                return 0
+            
+            if s[right] == '|':
+                left = bisect_right(candle_indices, left)
+                if candle_indices[left] <= right:
+                    return pref[right] - pref[candle_indices[left]]
+                return 0                
+            
+            left = bisect_right(candle_indices, left)
+            right = bisect_left(candle_indices, right) - 1
+            if left <= right:
+                return pref[candle_indices[right]] - pref[candle_indices[left]]
+            return 0
+        
+        N = len(s)
+        
+        pref = []
+        running_sum = 0
+        for idx in range(N):
+            running_sum += (s[idx] == '*')
+            pref.append(running_sum)
+        
+        candle_indices = [idx for idx, char in enumerate(s) if char == '|']
+        return [get_plates(left, right) for left, right in queries]
