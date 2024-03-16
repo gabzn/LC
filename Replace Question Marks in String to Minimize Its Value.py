@@ -9,19 +9,17 @@ class Solution:
             heappush(heap, (counter[char], char))
         
         queue = []
-        for char in s:
-            if char == "?":
-                count, char_to_replace_question_mark = heappop(heap)
-                heappush(heap, (count + 1, char_to_replace_question_mark))                
-                queue.append(char_to_replace_question_mark)
+        for _ in range(counter["?"]):
+            count, char_to_replace_question_mark = heappop(heap)
+            heappush(heap, (count + 1, char_to_replace_question_mark))                
+            queue.append(char_to_replace_question_mark)
         
-        queue.sort()
-        queue = deque(queue)
+        queue.sort(reverse=True)
         res = []
         
         for char in s:
             if char == "?":
-                res.append(queue.popleft())
+                res.append(queue.pop())
             else:
                 res.append(char)
         
