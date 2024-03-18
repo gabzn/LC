@@ -1,5 +1,26 @@
 https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/
-  
+
+class Solution:
+    def findMinArrowShots(self, points: List[List[int]]) -> int:
+        N = len(points)
+        
+        points.sort()
+        res = 0
+        left = 0
+        
+        while left < N:
+            right = left + 1
+            start, end = points[left]
+            
+            while right < N and start <= points[right][0] <= end:
+                end = min(end, points[right][1])
+                right += 1
+            
+            res += 1
+            left = right
+        
+        return res
+--------------------------------------------------------------------------
 class Solution:
     def findMinArrowShots(self, points: List[List[int]]) -> int:  
         points.sort(key=lambda point: point[0])
