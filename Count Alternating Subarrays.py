@@ -4,6 +4,23 @@ class Solution:
     def countAlternatingSubarrays(self, nums: List[int]) -> int:
         N = len(nums)
         
+        res = 0
+        streak = 0
+        
+        for i in range(N):
+            if i and nums[i] != nums[i-1]:
+                streak += 1
+            else:
+                streak = 1
+            
+            res += streak
+        
+        return res
+-------------------------------------------------------------------
+class Solution:
+    def countAlternatingSubarrays(self, nums: List[int]) -> int:
+        N = len(nums)
+        
         dp = [0] * N
         dp[0] = 1        
         
