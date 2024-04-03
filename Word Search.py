@@ -2,6 +2,41 @@ https://leetcode.com/problems/word-search/
 
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
+        def is_valid_cell(x, y):
+            return 0 <= x < ROWS and 0 <= y < COLS
+        
+        def found_word(x, y, i):
+            if board[x][y] != word[i]:
+                return False
+            if i == LEN - 1:
+                return True
+            
+            char = board[x][y]
+            board[x][y] = '/'            
+            
+            for offset_x, offset_y in DIRECTIONS:
+                next_x = offset_x + x
+                next_y = offset_y + y
+                                                
+                if is_valid_cell(next_x, next_y) and found_word(next_x, next_y, i + 1):
+                    return True
+            
+            board[x][y] = char
+            return False
+        
+        ROWS, COLS = len(board), len(board[0])
+        LEN = len(word)
+        DIRECTIONS = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+        
+        for row in range(ROWS):
+            for col in range(COLS):
+                if found_word(row, col, 0):
+                    return True
+        
+        return False
+----------------------------------------------------------------------
+class Solution:
+    def exist(self, board: List[List[str]], word: str) -> bool:
         R, C = len(board), len(board[0])
         
         for r in range(R):
