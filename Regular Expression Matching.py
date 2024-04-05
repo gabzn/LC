@@ -1,4 +1,5 @@
 https://leetcode.com/problems/regular-expression-matching/
+https://www.youtube.com/watch?v=l3hda49XcDE
 
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
