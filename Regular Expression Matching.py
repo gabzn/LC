@@ -19,32 +19,50 @@ class Solution:
                 if p[j] == s[i] or p[j] == '.':
                     dp[i][j] = dp[i-1][j-1]
                 
-                if p[j] == '*':                    
-                    if p[j-1] != '.' and p[j-1] != s[i]:
-                        dp[i][j] = dp[i][j-2]
-                    else:
-                        dp[i][j] = dp[i][j-2] or dp[i-1][j]
-                                        
-        return dp[-1][-1]
+                if p[j] == '*':
+                    # The current one char is *
+                    # If * zeroes out the char it precedes, 
+                    # and it still matches, then x* doesn't really matter
+                    if dp[i][j-2]:
+                        dp[i][j] = True
+                        continue
+                    
+                    """
+                         i
+                    s: x a
+                           j
+                    p: x a *
+                    
+                    p[j-1] == s[i] -> check if this is good
+                        s: x 
+                        p: x a *
+                    -----------------------
+                               i
+                    s: x a a a a
+                           j
+                    p: x a *
+                    
+                    p[j-1] == s[i] -> check if this is good
+                        s: x a a a
+                        p: x a *
+                    """
+                    if p[j-1] == '.' or p[j-1] == s[i]:
+                        dp[i][j] = dp[i-1][j]
+                                    
+        return dp[N][M]
 """
-if p[j-1] != '.' and p[j-1] != s[i]:
+                    i
+    s: [X X X X X X a]
+                   j
+    p: [Y Y Y Y] a *   -> 0's a  (a* removed)
+    
+                     i                    
+    s: [X X X X X X] a
+                  j 
+    p: [Y Y Y Y . *]   -> ()
+    
                      i
     s: [X X X X X X] a
-                   j
-    p: [Y Y Y Y] b *
----------------------------------------
-                    i
-    s: [X X X X X X a]
-                   j
-    p: [Y Y Y Y] a *   -> 0's a
-    
-                    i
-    s: [X X X X X X a]
-                   j
-    p: [Y Y Y Y] a *   -> 1 a    
-    
-                   i
-    s: X X X X X X a
-                 j
-    p: Y Y Y Y a *     -> multiple a's
+                  j
+    p: [Y Y Y Y a *]     -> 
 """    
