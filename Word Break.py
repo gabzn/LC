@@ -2,6 +2,29 @@ https://leetcode.com/problems/word-break/
 
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        N = len(s)
+        
+        words = set(wordDict)
+        s = '/' + s
+        
+        """
+        [x j] [x x x i] x x x
+                
+        dp[i] = (dp[j] == True) and s[j+1: i+1] in words
+        """
+        dp = [False] * (N + 1)
+        dp[0] = True
+                
+        for i in range(1, N + 1):
+            for j in range(i):
+                if dp[j] and s[j+1: i+1] in words:
+                    dp[i] = True
+                    break
+                
+        return dp[N]
+---------------------------------------------------------------------------
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         LEN = len(s)
         word_set = set(wordDict)
         
