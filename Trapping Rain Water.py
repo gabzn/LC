@@ -1,5 +1,25 @@
 https://leetcode.com/problems/trapping-rain-water/
-  
+
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        N = len(height)
+        
+        pre_max = [0] * N
+        pre_max[0] = height[0]
+        for i in range(1, N):
+            pre_max[i] = max(pre_max[i-1], height[i])
+            
+        suf_max = [0] * N
+        suf_max[-1] = height[-1]
+        for i in range(N - 2, -1, -1):
+            suf_max[i] = max(suf_max[i+1], height[i])
+        
+        res = 0
+        for left_max, right_max, h in zip(pre_max, suf_max, height):
+            res += min(left_max, right_max) - h
+        
+        return res
+--------------------------------------------------------------------------------
 class Solution:
     def trap(self, height: List[int]) -> int:
         H, water = len(height), 0
