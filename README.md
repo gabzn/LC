@@ -149,6 +149,7 @@ https://leetcode.com/problems/design-graph-with-shortest-path-calculator/
 https://leetcode.com/problems/minimum-cost-to-convert-string-i/
 https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/
 https://leetcode.com/problems/minimum-time-to-visit-disappearing-nodes/
+https://leetcode.com/problems/find-edges-in-shortest-paths/
 ```
 
 ## ``Heap / Priority Queue``
