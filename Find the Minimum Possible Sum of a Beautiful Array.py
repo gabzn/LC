@@ -1,22 +1,15 @@
 https://leetcode.com/problems/find-the-minimum-possible-sum-of-a-beautiful-array/
+https://leetcode.com/problems/find-the-minimum-possible-sum-of-a-beautiful-array/discuss/3965161/O(1)-oror-2-lines-code-oror-understandable-100
 
 class Solution:
     def minimumPossibleSum(self, n: int, target: int) -> int:
-        no_good = set()
-        res = []
-                    
-        for num in range(1, target + 1):
-            if len(res) == n:
-                break
-            if num in no_good:
-                continue
-            
-            res.append(num)
-            no_good.add(target - num)
-            
-        while len(res) < n:
-            target += 1
-            if target not in no_good:
-                res.append(target)
-                
-        return sum(res)
+        MOD = (10 ** 9) + 7
+        
+        half = target // 2
+        if n <= half:
+            return ((n * (n + 1)) // 2) % MOD
+        
+        first_half = (half * (half + 1) // 2)
+        diff = n - half
+        second_half = ((diff + target) * (diff + target - 1) // 2) - ((target * (target - 1)) // 2)
+        return (first_half + second_half) % MOD
