@@ -13,7 +13,7 @@ class Solution:
                 left_count += 1
                 right_count -= 1
                 
-                if left_count * 2 > (i + 1) and right_count * 2 > N - i - 1:
+                if left_count * 2 > (i + 1) and right_count * 2 > (N - i - 1):
                     return i
          
         return -1
