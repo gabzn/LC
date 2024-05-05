@@ -12,7 +12,7 @@ Any algorithm runs more than the indicated range will give a **time limit exceed
 ```
 
 ## ``How to convert a char into its ascii value and the opposite``
-```{python}
+```python
 ord('a') -> 97
 ord('a') - ord('a') = 0
 chr(ord('a')) = 'a'
