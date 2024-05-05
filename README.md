@@ -105,15 +105,11 @@ https://leetcode.com/problems/01-matrix/
 https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/
 ```
 
-## ``Union Find & Minimum Spanning Tree``
+## ``Union Find``
 Union find or disjoing set is a data structure to group data in sets. The most common way to implement union find is as below:
-```
-    def union(x, y):
-        root_x, root_y = map(find, [x, y])
-        if root_x == root_y:
-            return
-        root[root_y] = root_x
 
+Union by rank:
+```
     def union_by_rank(x, y):
         root_x, root_y = map(find, [x, y])
         if root_x == root_y:
@@ -134,6 +130,22 @@ Union find or disjoing set is a data structure to group data in sets. The most c
     root = [index for index in range(NUMBER OF NODES)]
     rank = [1 for _ in range(NUMBER OF NODES)]
 ```
+
+Regular union:
+```
+    def union(x, y):
+        root_x, root_y = map(find, [x, y])
+        if root_x == root_y:
+            return
+        root[root_y] = root_x
+
+    def find(x):
+        if root[x] != x:
+            root[x] = find(root[x])
+        return root[x]
+```
+
+## ``Minimum Spanning Tree``
 
 A Minimum Spanning Tree (MST) is a subset of a <b>`weighted undirected graph`</b> which connects all <b>`nodes`</b> with the minimal total edge cost.
 
