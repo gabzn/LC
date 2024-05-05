@@ -51,9 +51,10 @@ Postorder DFS Traversal:
 Topological Traversal is just the reverse of Postorder Traversal. Postorder means visit all the children first then myself.
 In the recursive dfs version, this is basically adding myself after the for loop.
 
+```
 https://leetcode.com/problems/reconstruct-itinerary/
 https://www.youtube.com/watch?v=ddTC4Zovtbc
-
+```
 
 Kahn's algo for topo sort: 
 ```
@@ -68,19 +69,24 @@ Kahn's algo for topo sort:
 https://www.youtube.com/watch?v=h3_D5MomlVs
 ```
 https://leetcode.com/problems/find-eventual-safe-states/
+
 https://leetcode.com/problems/course-schedule/
+
 https://leetcode.com/problems/course-schedule-ii/
 
 The difference between regular topo sort and Kahn's topo sort is that Kahn's topo sort must start with node with in-degree or 0.
 Unlike the regular one which can stat with any node.
 
-BFS/DFS + Binary Search
+BFS/DFS + Binary Search:
 
+```
 https://leetcode.com/problems/path-with-minimum-effort/
 https://leetcode.com/problems/find-the-safest-path-in-a-grid/
+```
 
 Multi-source BFS + (A very good explanation of MS-BFS: https://leetcode.com/problems/as-far-from-land-as-possible/discuss/2515617/How-to-solve-multi-source-BFS-problems.-Intuition)
 
+```
 https://leetcode.com/problems/find-the-safest-path-in-a-grid/
 https://leetcode.com/problems/walls-and-gates/
 https://leetcode.com/problems/shortest-bridge/
@@ -90,7 +96,7 @@ https://leetcode.com/problems/as-far-from-land-as-possible/
 https://leetcode.com/problems/map-of-highest-peak/
 https://leetcode.com/problems/01-matrix/
 https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/
-
+```
 
 ## ``Union Find & Minimum Spanning Tree``
 Union find or disjoing set is a data structure to group data in sets. The most common way to implement union find is as below:
