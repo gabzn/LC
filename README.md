@@ -89,9 +89,9 @@ https://leetcode.com/problems/path-with-minimum-effort/
 https://leetcode.com/problems/find-the-safest-path-in-a-grid/
 ```
 
-Multi-source BFS + (A very good explanation of MS-BFS: 
+Multi-source BFS + (A very good explanation of MS-BFS): 
     
-    https://leetcode.com/problems/as-far-from-land-as-possible/discuss/2515617/How-to-solve-multi-source-BFS-problems.-Intuition)
+    https://leetcode.com/problems/as-far-from-land-as-possible/discuss/2515617/How-to-solve-multi-source-BFS-problems.-Intuition
 
 ```
 https://leetcode.com/problems/find-the-safest-path-in-a-grid/
