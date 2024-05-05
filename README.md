@@ -19,7 +19,9 @@ chr(ord('a')) = 'a'
 ```
 
 ## ``How to implement custom str comparator``
+```
 https://leetcode.com/problems/largest-number/
+```
 
 ## ``How to check if a char is a digit or a letter``
 char.isnumeric()   -> checks if a char is a digit/number
@@ -27,12 +29,15 @@ char.isnumeric()   -> checks if a char is a digit/number
 char.isalpha()    -> checks if a char is a letter
 
 ## ``How to sort an array by multiple values``
+```
 https://leetcode.com/problems/the-number-of-weak-characters-in-the-game/
+```
 
 ## ``How to deal with tricky bounds in indexing``
+```
 https://leetcode.com/problems/total-cost-to-hire-k-workers/
-
 https://leetcode.com/problems/stone-game-ii/
+```
 
 ## ``DFS & BFS``
 DFS uses a stack & BFS uses a queue
@@ -65,17 +70,17 @@ Kahn's algo for topo sort:
     Step 4: Generally, when the queue is empty, we obtain a topo ordering. However, if a graph has cycle, we will not have a topo ordering.
             We also need to check if all nodes have in-degree of 0 to detect if there's a cycle.
             Alternatively, we can check how many nodes we have visited. If the number doesn't match the number of all nodes, there's a cycle.
-
-https://www.youtube.com/watch?v=h3_D5MomlVs
 ```
+```
+https://www.youtube.com/watch?v=h3_D5MomlVs
 https://leetcode.com/problems/find-eventual-safe-states/
-
 https://leetcode.com/problems/course-schedule/
-
 https://leetcode.com/problems/course-schedule-ii/
+```
 
 The difference between regular topo sort and Kahn's topo sort is that Kahn's topo sort must start with node with in-degree or 0.
 Unlike the regular one which can stat with any node.
+
 
 BFS/DFS + Binary Search:
 
@@ -144,8 +149,11 @@ Kruskal's algo uses <b>Union-Find</b> to find whether two nodes are already conn
     3: Repeat step 2 until (NUMBER OF NODES - 1) edges are added.
 ```
 
+```
 https://leetcode.com/problems/min-cost-to-connect-all-points/
 https://leetcode.com/problems/optimize-water-distribution-in-a-village/
+```
+
 
 ## Single-Source Weighted Shortest Path - Dijkstra
 Recall regular BFS can find the shortest path between two nodes <b>`WHEN THERE'S NO WEIGHT`</b> in the graph. When there's positive weight in the graph, we have to use Dijkstra.
@@ -155,6 +163,7 @@ What does single source mean? Single source means we want to know the distance f
 Dijkstra uses a heap to find the next least-weight unvisited path. Usually, we maintain another list to compare the weights.
 ```
 
+```
 https://leetcode.com/problems/network-delay-time/
 https://leetcode.com/problems/path-with-maximum-probability/
 https://leetcode.com/problems/minimum-cost-to-reach-city-with-discounts/
@@ -163,7 +172,7 @@ https://leetcode.com/problems/minimum-cost-to-convert-string-i/
 https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/
 https://leetcode.com/problems/minimum-time-to-visit-disappearing-nodes/
 https://leetcode.com/problems/find-edges-in-shortest-paths/
-
+```
 
 ## ``Heap / Priority Queue``
 A heap is a tree based data structure that satisfies the heap property. Trees cannot contain cycles. Therefore, heaps cannot contain cycles too.
@@ -215,21 +224,22 @@ Say we have n nodes, and we want to use Floyd-Warsall to compute the APSP.
     What these nested for loops are saying is we want to know if going from i to j through k will result in a shorter distance. 
 ```
 
+```
 https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/
 https://leetcode.com/problems/minimum-cost-to-convert-string-i/
 https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-i/
-
+```
 
 ## ``Sliding Window``
 Always a good idea to think of sliding window when the problem has keywords like <b>consecutive</b>, <b>contiguous</b>, <b>subarray</b> and <b>substring</b>, and the input is a string or array.
 
 Also, if the problem has a requirement like pick x something from the list and the ordering doesn't matter, think about sorting the list then apply sliding window.
 
+```
 https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/
-
 https://leetcode.com/problems/fruit-into-baskets/
-
 https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/
+```
 
 ## ``Binary Search Stuff``
 https://leetcode.com/discuss/general-discussion/786126/Python-Powerful-Ultimate-Binary-Search-Template.-Solved-many-problems
@@ -251,61 +261,67 @@ while l + 1 != r:
 return either l or r
 ```
 
+```
 https://leetcode.com/problems/fair-distribution-of-cookies/
-
 https://leetcode.com/problems/divide-chocolate/
-
 https://leetcode.com/problems/split-array-largest-sum/
-
 https://leetcode.com/problems/minimized-maximum-of-products-distributed-to-any-store/
+```
 
 ## ``DP``
 Top-down (memoization) uses recursion. When try to solve a DP problem using this approach, there's usually a recursive function that does the work. Two things to think about before designing such a recursive function. 1: State variables (what we care about at the current step) and 2: what this recursive function returns. Example: if a question is asking for the max or min of performing some actions. The function can return the max or min when we are performing the i-th action where i is also the state variable.
 
 Interval dp problems:
-
+```
 https://leetcode.com/problems/maximize-the-profit-as-the-salesman/
-
 https://leetcode.com/problems/maximum-earnings-from-taxi/
-
 https://leetcode.com/problems/maximum-profit-in-job-scheduling/
-
 https://leetcode.com/problems/video-stitching/                                             (greedy/dp)
-
 https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/            (greedy/dp)
+```
 
 ## ``Game Theory (Turn by turn based)``
+```
 https://leetcode.com/problems/predict-the-winner/
-
 https://leetcode.com/problems/stone-game/
+```
 
 ## ``Mono stack``
 Next smaller or previous smaller -> Increasing stack (Becasue when you see an element that is smaller than the top element in the stack, this element is the next smaller of the top element)
 
 Next larger or previous larger -> Decreasing stack (Becasue when you see an element that is larger than the top element in the stack, this element is the next larger of the top element)
 
+```
 https://leetcode.com/problems/sum-of-subarray-minimums/
-
 https://leetcode.com/problems/sum-of-subarray-ranges/
+```
 
 ## ``Subsequence or substring questions that needs to MOD 10**9 + 7``
+```
 https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/
+```
 
 ## ``A good question to look at to count the number of pairs that needs to meet some condition like i < j``
+```
 https://leetcode.com/problems/number-of-good-pairs/
+```
 
 ## ``Combinatorics``
+```
 https://leetcode.com/problems/number-of-ways-to-divide-a-long-corridor/
+```
 
 ## ``Tree DP``
+```
 https://leetcode.com/problems/maximum-score-after-applying-operations-on-a-tree/
-
 https://leetcode.com/problems/maximum-points-after-collecting-coins-from-all-nodes/
+```
 
 ## ``Knapsack / Pick or skip``
+```
 https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target/
-
 https://leetcode.com/problems/minimum-number-of-coins-for-fruits/
+```
 
 ## ``Something to look at later``
 DP
