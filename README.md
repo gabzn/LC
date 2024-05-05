@@ -46,14 +46,17 @@ Preorder DFS Traversal:
 Postorder DFS Traversal:
     1: Visit neighbour nodes
     2: Visit current node
+```
 
 Topological Traversal is just the reverse of Postorder Traversal. Postorder means visit all the children first then myself.
 In the recursive dfs version, this is basically adding myself after the for loop.
 
-    https://leetcode.com/problems/reconstruct-itinerary/
-    https://www.youtube.com/watch?v=ddTC4Zovtbc
+https://leetcode.com/problems/reconstruct-itinerary/
+https://www.youtube.com/watch?v=ddTC4Zovtbc
+
 
 Kahn's algo for topo sort: 
+```
     Step 1: Calculate the in-degree of all nodes
     Step 2: Put nodes with in-degree of 0 into a queue
     Step 3: Perform BFS. When going through the neighbours of those in-degree-0 nodes, decrement their in-degree by 1
@@ -62,19 +65,22 @@ Kahn's algo for topo sort:
             We also need to check if all nodes have in-degree of 0 to detect if there's a cycle.
             Alternatively, we can check how many nodes we have visited. If the number doesn't match the number of all nodes, there's a cycle.
 
-    https://www.youtube.com/watch?v=h3_D5MomlVs
-    https://leetcode.com/problems/find-eventual-safe-states/
-    https://leetcode.com/problems/course-schedule/
-    https://leetcode.com/problems/course-schedule-ii/
+https://www.youtube.com/watch?v=h3_D5MomlVs
+```
+https://leetcode.com/problems/find-eventual-safe-states/
+https://leetcode.com/problems/course-schedule/
+https://leetcode.com/problems/course-schedule-ii/
 
 The difference between regular topo sort and Kahn's topo sort is that Kahn's topo sort must start with node with in-degree or 0.
 Unlike the regular one which can stat with any node.
 
 BFS/DFS + Binary Search
+
 https://leetcode.com/problems/path-with-minimum-effort/
 https://leetcode.com/problems/find-the-safest-path-in-a-grid/
 
 Multi-source BFS + (A very good explanation of MS-BFS: https://leetcode.com/problems/as-far-from-land-as-possible/discuss/2515617/How-to-solve-multi-source-BFS-problems.-Intuition)
+
 https://leetcode.com/problems/find-the-safest-path-in-a-grid/
 https://leetcode.com/problems/walls-and-gates/
 https://leetcode.com/problems/shortest-bridge/
@@ -85,7 +91,6 @@ https://leetcode.com/problems/map-of-highest-peak/
 https://leetcode.com/problems/01-matrix/
 https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/
 
-```
 
 ## ``Union Find & Minimum Spanning Tree``
 Union find or disjoing set is a data structure to group data in sets. The most common way to implement union find is as below:
@@ -116,6 +121,7 @@ Union find or disjoing set is a data structure to group data in sets. The most c
     root = [index for index in range(NUMBER OF NODES)]
     rank = [1 for _ in range(NUMBER OF NODES)]
 ```
+
 A Minimum Spanning Tree (MST) is a subset of a <b>`weighted undirected graph`</b> which connects all <b>`nodes`</b> with the minimal total edge cost.
 
 There are two well-known algorithms to construct a MST:
@@ -130,10 +136,10 @@ Kruskal's algo uses <b>Union-Find</b> to find whether two nodes are already conn
         2.2: If False, that means adding the current edge would produce a cycle. Skip the current edge.
         2.3: If True, adding the current edge would not create a cycle. Use the current edge.
     3: Repeat step 2 until (NUMBER OF NODES - 1) edges are added.
-
-    https://leetcode.com/problems/min-cost-to-connect-all-points/
-    https://leetcode.com/problems/optimize-water-distribution-in-a-village/
 ```
+
+https://leetcode.com/problems/min-cost-to-connect-all-points/
+https://leetcode.com/problems/optimize-water-distribution-in-a-village/
 
 ## Single-Source Weighted Shortest Path - Dijkstra
 Recall regular BFS can find the shortest path between two nodes <b>`WHEN THERE'S NO WEIGHT`</b> in the graph. When there's positive weight in the graph, we have to use Dijkstra.
@@ -141,6 +147,7 @@ Recall regular BFS can find the shortest path between two nodes <b>`WHEN THERE'S
 ```
 What does single source mean? Single source means we want to know the distance from one specific node to another specific node.
 Dijkstra uses a heap to find the next least-weight unvisited path. Usually, we maintain another list to compare the weights.
+```
 
 https://leetcode.com/problems/network-delay-time/
 https://leetcode.com/problems/path-with-maximum-probability/
@@ -150,7 +157,7 @@ https://leetcode.com/problems/minimum-cost-to-convert-string-i/
 https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/
 https://leetcode.com/problems/minimum-time-to-visit-disappearing-nodes/
 https://leetcode.com/problems/find-edges-in-shortest-paths/
-```
+
 
 ## ``Heap / Priority Queue``
 A heap is a tree based data structure that satisfies the heap property. Trees cannot contain cycles. Therefore, heaps cannot contain cycles too.
@@ -189,9 +196,6 @@ The general idea of Floyd-Warsall is try to see if using some intermediate nodes
 
 ```
 https://www.youtube.com/watch?v=0dTrKG5UK9k
-https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/
-https://leetcode.com/problems/minimum-cost-to-convert-string-i/
-https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-i/
 
 Say we have n nodes, and we want to use Floyd-Warsall to compute the APSP.
         
@@ -203,7 +207,12 @@ Say we have n nodes, and we want to use Floyd-Warsall to compute the APSP.
             distances[i][j] = min(distances[i][j], distances[i][k] + distances[k][j])
 
     What these nested for loops are saying is we want to know if going from i to j through k will result in a shorter distance. 
-```    
+```
+
+https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/
+https://leetcode.com/problems/minimum-cost-to-convert-string-i/
+https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-i/
+
 
 ## ``Sliding Window``
 Always a good idea to think of sliding window when the problem has keywords like <b>consecutive</b>, <b>contiguous</b>, <b>subarray</b> and <b>substring</b>, and the input is a string or array.
