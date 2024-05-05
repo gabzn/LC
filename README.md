@@ -19,7 +19,7 @@ chr(ord('a')) = 'a'
 ```
 
 ## ``Quick way to flatten a nested-list in Python``
-```{python}
+```python
 import itertools
 
 to_flatten = [[1,2,3],[4,5,6],[7,8,9]]
@@ -33,9 +33,10 @@ https://leetcode.com/problems/largest-number/
 ```
 
 ## ``How to check if a char is a digit or a letter``
-char.isnumeric()   -> checks if a char is a digit/number
-
-char.isalpha()    -> checks if a char is a letter
+```python
+char.isnumeric()   # checks if a char is a digit/number
+char.isalpha()     # checks if a char is a letter
+```
 
 ## ``How to sort an array by multiple values``
 ```
