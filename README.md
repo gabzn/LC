@@ -119,7 +119,7 @@ https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/
 Union find or disjoing set is a data structure to group data in sets. The most common way to implement union find is as below:
 
 Union by rank:
-```
+```python
     def union_by_rank(x, y):
         root_x, root_y = map(find, [x, y])
         if root_x == root_y:
@@ -142,7 +142,7 @@ Union by rank:
 ```
 
 Regular union:
-```
+```python
     def union(x, y):
         root_x, root_y = map(find, [x, y])
         if root_x == root_y:
@@ -348,36 +348,4 @@ https://leetcode.com/problems/minimum-number-of-coins-for-fruits/
 ```
 
 ## ``Something to look at later``
-DP
-
-Monotonic Queue
-
-Monotonic Stack
-
-Backtracking
-
-Permutation
-
-Combination
-
-Prefix Sum
-
-Greedy
-
-Subsequences & Substrings
-
-Top K
-
-Simulation
-
-Segment Tree
-
-<s>Priority queue & Heap</s>
-
-<s>Sliding Window</s>
-
-<s>Binary Search</s>
-
-<s>Union Find</s>
-
-<s>DFS + BFS</s>
+None for now
