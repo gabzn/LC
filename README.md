@@ -18,6 +18,15 @@ ord('a') - ord('a') = 0
 chr(ord('a')) = 'a'
 ```
 
+## ``Quick way to flatten a nested-list in Python``
+```
+import itertools
+
+to_flatten = [[1,2,3],[4,5,6],[7,8,9]]
+flattened = list(itertools.chain(*lst))
+flattened -> [1,2,3,4,5,6,7,8,9]
+```
+
 ## ``How to implement custom str comparator``
 ```
 https://leetcode.com/problems/largest-number/
