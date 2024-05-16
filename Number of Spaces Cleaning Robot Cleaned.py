@@ -8,6 +8,43 @@ class Solution:
         ROWS, COLS = len(room), len(room[0])
         ROTATIONS = [(0, 1), (1, 0), (0, -1), (-1, 0)]
         r = 0
+        
+        visited_directions = set()
+        cleaned_cells = set([(0, 0)])
+        stack = [(0, 0)]
+        
+        while stack:
+            x, y = stack.pop()
+            
+            if (x, y, r) in visited_directions:
+                return len(cleaned_cells)
+            visited_directions.add((x, y, r))
+                        
+            next_x = x + ROTATIONS[r][0]
+            next_y = y + ROTATIONS[r][1]
+            
+            # Keep going in the same direction
+            if is_empty_space(next_x, next_y):
+                if (next_x, next_y) not in cleaned_cells:
+                    cleaned_cells.add((next_x, next_y))   
+
+                stack.append((next_x, next_y))
+                
+            # Come back to the current one but this time turn 90 degree clockwise
+            else:
+                stack.append((x, y))
+                r = (r + 1) % 4
+        
+        return len(cleaned_cells)
+----------------------------------------------------------------------------------------
+class Solution:
+    def numberOfCleanRooms(self, room: List[List[int]]) -> int:
+        def is_empty_space(x, y):
+            return 0 <= x < ROWS and 0 <= y < COLS and room[x][y] == 0
+        
+        ROWS, COLS = len(room), len(room[0])
+        ROTATIONS = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+        r = 0
         visited_directions = set()
         cleaned_cells = set()
         stack = [(0, 0)]
