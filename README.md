@@ -188,7 +188,6 @@ https://leetcode.com/problems/min-cost-to-connect-all-points/
 https://leetcode.com/problems/optimize-water-distribution-in-a-village/
 ```
 
-
 ## Single-Source Weighted Shortest Path - Dijkstra
 Recall regular BFS can find the shortest path between two nodes <b>`WHEN THERE'S NO WEIGHT`</b> in the graph. When there's positive weight in the graph, we have to use Dijkstra.
 
@@ -300,6 +299,27 @@ https://leetcode.com/problems/fair-distribution-of-cookies/
 https://leetcode.com/problems/divide-chocolate/
 https://leetcode.com/problems/split-array-largest-sum/
 https://leetcode.com/problems/minimized-maximum-of-products-distributed-to-any-store/
+```
+
+## ``How to use the bisect module in Python``
+```python
+import bisect
+
+#indices  [0,1,2,3,4,5]
+nums =    [1,3,3,5,7,9]
+x = 3
+
+"""
+bisect_left finds the index of the first element that is greater than or equal to x
+            x <= first element
+"""
+left = bisect.bisect_left(lst, x) # returns index 1
+
+"""
+bisect_right finds the index of the first element that is strictly greater than x
+            first element > x
+"""
+right = bisect.bisect_right(lst, x) # returns index 3
 ```
 
 ## ``DP``
