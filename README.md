@@ -27,6 +27,16 @@ flattened = list(itertools.chain(*lst))
 flattened -> [1,2,3,4,5,6,7,8,9]
 ```
 
+## ``Quick way to generate every consecutive pair``
+```python
+import itertools
+
+nums = [4,3,1,6]
+consecutive_pairs = list(itertools.pairwise(nums))
+consecutive_pairs -> [(4, 3), (3, 1), (1, 6)]
+https://leetcode.com/problems/special-array-i/
+```
+
 ## ``How to implement custom str comparator``
 ```
 https://leetcode.com/problems/largest-number/
