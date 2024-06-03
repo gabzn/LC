@@ -1,30 +1,18 @@
 https://leetcode.com/problems/subtree-of-another-tree/
-  
-  
-Given the roots of two binary trees root and subRoot, return true if there is a subtree of root with the same structure and node values of subRoot and false otherwise.
-
-A subtree of a binary tree tree is a tree that consists of a node in tree and all of this node's descendants. The tree tree could also be considered as a subtree of itself.
-
 
 class Solution:
-    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
-        if (not root and not subRoot) or (not subRoot):
-            return True
+    def isSubtree(self, root: Optional[TreeNode], sub_root: Optional[TreeNode]) -> bool:
         if not root:
             return False
-        
-        if self.isSameTree(root, subRoot):
-            return True 
-        return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
+        if self.is_same_tree(root, sub_root):
+            return True
+        return self.isSubtree(root.left, sub_root) or self.isSubtree(root.right, sub_root)
     
-    
-    def isSameTree(self, root, subRoot):
-        if not root or not subRoot:
-            return not root and not subRoot
-        
-        # If the Null/None checks are good, we then check the values.
-        if root.val != subRoot.val:
+    def is_same_tree(self, root, sub_root):
+        if not root and not sub_root:
+            return True
+        if not root or not sub_root:
             return False
-        
-        # We go check the left subtrees and right subtrees.
-        return self.isSameTree(root.left, subRoot.left) and self.isSameTree(root.right, subRoot.right)
+        if root.val != sub_root.val:
+            return False
+        return self.is_same_tree(root.left, sub_root.left) and self.is_same_tree(root.right, sub_root.right)
