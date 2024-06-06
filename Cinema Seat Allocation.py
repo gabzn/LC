@@ -24,6 +24,7 @@ class Solution:
                 res += 1
 
             last_row = row
-            
-        res += (2 * (missing_rows + (n - last_row)))
+        
+        missing_rows += n - last_row
+        res += (2 * missing_rows)
         return res
