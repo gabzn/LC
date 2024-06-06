@@ -1,5 +1,28 @@
 https://leetcode.com/problems/process-tasks-using-servers/
-  
+
+class Solution:
+    def assignTasks(self, servers: List[int], tasks: List[int]) -> List[int]:        
+        busy = []
+        free = [(w, i) for i, w in enumerate(servers)]
+        heapify(free)
+        
+        res = []
+        for task_index, task_time in enumerate(tasks):
+            while busy and busy[0][0] <= task_index:
+                _, w, i = heappop(busy)
+                heappush(free, (w, i))
+            
+            if free:
+                w, i = heappop(free)
+                heappush(busy, (task_index + task_time, w, i))
+                res.append(i)
+            else:
+                last_finish_time, w, i = heappop(busy)
+                heappush(busy, (last_finish_time + task_time, w, i))
+                res.append(i)
+
+        return res
+--------------------------------------------------------------------------------
 class Solution:
     def assignTasks(self, servers: List[int], tasks: List[int]) -> List[int]:
         ans, busy_servers, free_servers = [], [], []
