@@ -2,6 +2,22 @@ https://leetcode.com/problems/meeting-rooms-ii/
 
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        N = len(intervals)
+        ending_times = []
+        res = 0
+        
+        for start, end in sorted(intervals):
+            # Check if any meeting rooms become free
+            while ending_times and ending_times[0] <= start:
+                heappop(ending_times)
+            
+            heappush(ending_times, end)
+            res = max(res, len(ending_times))
+        
+        return res
+----------------------------------------------------------------------
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
         diff = []
         for start, end in intervals:
             diff.append((start, 1))
