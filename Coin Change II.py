@@ -1,6 +1,25 @@
 https://leetcode.com/problems/coin-change-ii/
-
 # https://www.youtube.com/watch?v=EqBJ7ogzrYI&t=651s
+
+class Solution:
+    def change(self, amount: int, coins: List[int]) -> int:    
+        # dp[i][j] = the # of combinations to make up i amount using all the coins from [0: j]
+        dp = [[0 for _ in range(len(coins))] for _ in range(amount + 1)]
+        
+        # dp[0][j] = the # of combinations to make up 0 using all the coins from [0: j] is always 1
+        for j in range(len(coins)):
+            dp[0][j] = 1
+        
+        for i in range(1, amount + 1):
+            for j, val in enumerate(coins):
+                skip_current_coin = dp[i][j - 1] if j > 0 else 0
+                use_current_coin = dp[i - val][j] if i - val >= 0 else 0
+                
+                dp[i][j] += (skip_current_coin + use_current_coin)
+        
+        # dp[amount][-1] = the # of combinations to make up amount using all the coins
+        return dp[amount][-1]
+---------------------------------------------------------------------
 class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
         LEN = len(coins)
@@ -20,30 +39,3 @@ class Solution:
             return take_current_coin + skip_current_coin
             
         return dp(0, amount)
-----------------------------------------------------------------------------------------------
-# https://www.youtube.com/watch?v=DJ4a7cmjZY0
-class Solution:
-    def change(self, amount: int, coins: List[int]) -> int:
-        LEN = len(coins)
-        
-        # Each row represents each coin in coins
-        # Each col represents the amount from 0 up to amount
-        # dp[1][3] means the number of ways to use coins[1 - 1] to make up $3
-        # dp[2][9] means the number of ways to use coins[2 - 1] to make up $9
-        dp = [[0 for _ in range(amount + 1)] for _ in range(LEN + 1)]
-        for row in range(LEN + 1):
-            dp[row][0] = 1
-        
-        # dp[row][amt] = dp[row - 1][amt] + dp[row][amt - coin]
-        # coin = coins[row - 1]
-        for row in range(1, LEN + 1):            
-            for amt in range(1, amount + 1):
-                # Not using the current coin
-                dp[row][amt] = dp[row - 1][amt]
-                
-                # Use the current coin only if there's more amt left after using the coin
-                coin = coins[row - 1]
-                if amt - coin >= 0:
-                    dp[row][amt] += dp[row][amt - coin]
-      
-        return dp[-1][-1]  
