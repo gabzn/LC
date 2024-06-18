@@ -1,10 +1,25 @@
 https://leetcode.com/problems/path-sum/
 
-Given the root of a binary tree and an integer targetSum, 
-return true if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum.
-
-A leaf is a node with no children.
-
+class Solution:
+    def hasPathSum(self, root: Optional[TreeNode], target_sum: int) -> bool:
+        if not root:
+            return False
+        
+        stack = [(root, target_sum)]
+        
+        while stack:
+            node, target = stack.pop()
+            new_target = target - node.val
+            if not node.left and not node.right and new_target == 0:
+                return True
+            
+            if node.left:
+                stack.append((node.left, new_target))
+            if node.right:
+                stack.append((node.right, new_target))
+        
+        return False
+-----------------------------------------------------------------------------------------
 class Solution:
     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
         if not root:
