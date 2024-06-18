@@ -1,5 +1,30 @@
 https://leetcode.com/problems/path-sum-ii/
-  
+
+class Solution:
+    def pathSum(self, root: Optional[TreeNode], target_sum: int) -> List[List[int]]:
+        if not root:
+            return []
+        
+        return self.find_paths(root, target_sum, [], [])
+        
+    def find_paths(self, node, target_sum, current, res):
+        current.append(node.val)
+        new_target = target_sum - node.val
+
+        if not node.left and not node.right and new_target == 0:
+            res.append(current.copy())
+            return res
+
+        if node.left:
+            res = self.find_paths(node.left, new_target, current, res)
+            current.pop()
+
+        if node.right:
+            res = self.find_paths(node.right, new_target, current, res)
+            current.pop()
+
+        return res
+----------------------------------------------------------------------------------------------------
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
         if not root:
