@@ -2,6 +2,16 @@ https://leetcode.com/problems/maximize-total-cost-of-alternating-subarrays/
 
 class Solution:
     def maximumTotalCost(self, nums: List[int]) -> int:    
+        dp0 = dp1 = nums[0]
+        for i in range(1, len(nums)):
+            prev0 = dp0
+            prev1 = dp1
+            dp0 = max(prev0, prev1) + nums[i]
+            dp1 = prev0 - nums[i]
+        return max(dp0, dp1)
+----------------------------------------------------------------------------
+class Solution:
+    def maximumTotalCost(self, nums: List[int]) -> int:    
         N = len(nums)
         
         """
