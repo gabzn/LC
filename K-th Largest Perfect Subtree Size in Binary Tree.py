@@ -16,7 +16,7 @@ class Solution:
 
             if left == right and left != 0:
                 res.append(left + right + 1)
-                return left +right + 1
+                return left + right + 1
 
             return 0
 
