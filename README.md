@@ -18,6 +18,12 @@ ord('a') - ord('a') = 0
 chr(ord('a')) = 'a'
 ```
 
+## ``How to increment a lowercase/upper letter cyclically``
+```python
+chr(((ord(letter) - ord('a') + 1) % 26) + ord('a'))
+chr(((ord(letter) - ord('A') + 1) % 26) + ord('A'))
+```
+
 ## ``Quick way to flatten a nested-list in Python``
 ```python
 import itertools
