@@ -24,6 +24,19 @@ chr(((ord(letter) - ord('a') + 1) % 26) + ord('a'))
 chr(((ord(letter) - ord('A') + 1) % 26) + ord('A'))
 ```
 
+## ``Circular array/list indexing``
+```python
+N = len(nums)
+
+# If x is the # of positions we want to move and it's positive, this will work:
+nums[(i + x) % N]
+
+# A general way to circular indexing is to do this:
+nums[ (((i + x) % N) + N) % N ]
+
+https://leetcode.com/problems/transformed-array/
+```
+
 ## ``Quick way to flatten a nested-list in Python``
 ```python
 import itertools
