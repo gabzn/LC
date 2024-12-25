@@ -1,6 +1,19 @@
 https://leetcode.com/problems/corporate-flight-bookings/
 
 class Solution:
+    def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
+        a = [0] * (n + 2)
+        for f, l, s in bookings:
+            a[f] += s
+            a[l + 1] -= s
+        
+        res = []
+        for seats in a[1:-1]:
+            cnt = seats + res[-1] if res else seats
+            res.append(cnt)
+        return res
+--------------------------------------------------------------------------------------
+class Solution:
     def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:        
         diff_lst = [0] * (n + 2)
         for f, l, s in bookings:
