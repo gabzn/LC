@@ -1,5 +1,36 @@
 https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/
-  
+
+class Solution:
+    def maxScore(self, cards: List[int], k: int) -> int:
+        N = len(cards)
+        WINDOW_SIZE = N - k
+        TOTAL = sum(cards)
+
+        # If we have to take all N cards, just return the sum
+        if N == k:
+            return TOTAL
+
+        # Instead of getting the window max, we get the window min
+        # We then use total to subtract window min to get window max        
+        window_sum = 0
+        window_min_sum = inf
+
+        for i, point in enumerate(cards):
+            # Add to window
+            window_sum += point
+
+            # Check window size
+            if i + 1 - WINDOW_SIZE < 0:
+                continue
+            
+            # Update min
+            window_min_sum = min(window_min_sum, window_sum)
+
+            # Remove leftmost item from window
+            window_sum -= cards[i + 1 - WINDOW_SIZE]
+
+        return TOTAL - window_min_sum
+---------------------------------------------------------------------------
 class Solution:
     def maxScore(self, cardPoints: List[int], k: int) -> int:
         LEN, max_score = len(cardPoints), 0                
