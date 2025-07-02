@@ -3,8 +3,6 @@ https://leetcode.com/problems/defuse-the-bomb/description/
 class Solution:
     def decrypt(self, code: List[int], k: int) -> List[int]:
         N = len(code)
-        TOTAL = sum(code)
-        
         res = [0] * N
 
         if k == 0:
