@@ -14,23 +14,23 @@ class Solution:
             code.reverse()
             k = abs(k)
 
+        # Get the initial sum of the window
         window_sum = 0
-        right = 1
-        for _ in range(k):
-            window_sum += code[right]
-            right = (right + 1) % N
+        window_left = 1
+        window_right = k
+        for i in range(window_left, window_right + 1):
+            window_sum += code[i]
 
         for i, num in enumerate(code):
             # Update the result
             res[i] = window_sum
 
-            # Remove the leftmost num from the window
-            window_sum -= code[(right - k) % N]
+            # Remove the leftmost num from the windowm and move it
+            window_sum -= code[window_left]
+            window_left = (window_left + 1) % N
 
-            # Add rightmost num to add the window
-            window_sum += code[right % N]
-
-            # Move right pointer
-            right = (right + 1) % N
+            # Add next num to the window and move the right pointer
+            window_sum += code[(window_right + 1) % N]
+            window_right = (window_right + 1) % N
         
         return list(reversed(res)) if is_reversed else res
