@@ -4,32 +4,23 @@ from sortedcontainers import SortedList
 
 class Solution:
     def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
-        N = len(nums)
-        sl = SortedList()
         res = []
-        left = right = negative_count = 0
+        sorted_list = SortedList()
 
-        while right < N:
-            # If the window size > k, move left 1 unit to the right
-            if right - left + 1 > k:
-                sl.remove(nums[left])
-                if nums[left] < 0:
-                    negative_count -= 1
-                left += 1
+        for i, num in enumerate(nums):
+            sorted_list.add(num)
 
-            # Add the current num to the window
-            if nums[right] < 0:
-                negative_count += 1
-            sl.add(nums[right])
+            left = i + 1 - k
+            if left < 0:
+                continue
+
+            x_smallest = sorted_list[x - 1]
+            if x_smallest < 0:
+                res.append(x_smallest)
+            else:
+                res.append(0)
             
-            # If we have at least window size, add the xth smallest
-            if right >= k - 1:
-                if negative_count < x:
-                    res.append(0)
-                else:
-                    res.append(sl[x - 1])
-
-            right += 1
+            sorted_list.remove(nums[left])
 
         return res
 ------------------------------------------------------------------------------
