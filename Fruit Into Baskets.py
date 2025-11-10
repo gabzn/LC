@@ -1,23 +1,20 @@
 https://leetcode.com/problems/fruit-into-baskets/
   
 class Solution:
-    def totalFruit(self, fruits: List[int]) -> int:    
-        baskets_of_fruits = collections.defaultdict(int)
-        l, cur_count, max_count = 0, 0, 0
-        
-        for r in range(len(fruits)):            
-            baskets_of_fruits[fruits[r]] += 1
-            cur_count += 1
+    def totalFruit(self, fruits: List[int]) -> int:
+        counter = defaultdict(int)
+        res = 0
+        left = 0
+
+        for right, fruit in enumerate(fruits):
+            counter[fruit] += 1
+
+            while len(counter) > 2:
+                counter[fruits[left]] -= 1
+                if counter[fruits[left]] == 0:
+                    del counter[fruits[left]]
+                left += 1
             
-            while len(baskets_of_fruits) > 2:
-                baskets_of_fruits[fruits[l]] -= 1                
-                
-                if baskets_of_fruits[fruits[l]] == 0:
-                    del baskets_of_fruits[fruits[l]]
-                
-                cur_count -= 1
-                l += 1
-                
-            max_count = max(max_count, cur_count)
+            res = max(right - left + 1, res)
         
-        return max_count
+        return res
